@@ -1,0 +1,132 @@
+<resources>
+    <string name="app_name">COVID-19 Tracker</string>
+    <string name="splash_tv_covid_19_tracker">COVID-19 TRACKER</string>
+
+    <string name="login_tv_covid_19_tracker">COVID-19 Tracker</string>
+    <string name="login_tv_login">Login Now!</string>
+    <string name="login_et_email_hint">SSN</string>
+    <string name="time_repeat_sp">Date</string>
+    <string name="reminder_update">Update</string>
+    <string name="login_et_password_hint">Password</string>
+    <string name="login_chb_stay_signed_in">Stay Signed In</string>
+    <string name="login_tv_forget_password">Forget Password?</string>
+    <string name="login_btn_login">Login</string>
+    <string name="login_btn_sign_up">Sign Up</string>
+    <string name="signup_tv_register_now">Register Now!</string>
+    <string name="signup_et_hint_full_name">Full Name</string>
+    <string name="signup_et_hint_ssn">Phone Number</string>
+    <string name="signup_et_hint_email">SSN</string>
+    <string name="signup_et_hint_password">Password</string>
+    <string name="signup_btn_register">Register</string>
+    <string name="syndrome1">The Less common symptoms:</string>
+    <string name="syndrome2">The most common symptoms:</string>
+    <string name="syndrome3">The Serious symptoms:</string>
+    <string name="syndrome_description1"> pain and aches. Sore throat, diarrhea, conjunctivitis,
+        headache, loss of sense of taste, smell, or rash. </string>
+    <string name="syndrome_description2">fever, dry cough and fatigue.</string>
+    <string name="custome_advice_txt_advice_description">description</string>
+
+    <string name="syndrome_description3">
+        difficulty or shortness of breath,
+        pain or pressure in the chest ,
+        loss of speech or movement </string>
+
+
+    <string name="syndrome_answer">Please Answer This Question</string>
+    <string name="yes_i_have">Yes, I have</string>
+    <string name="no_i_havent">No, I haven\'t</string>
+    <string name="the_question">Do you have more than one of these symptoms :</string>
+    <string name="Sign_Up_URL">http://192.168.1.7/ourTeam/sign_up.php</string>
+    <string name="Sign_URL">http://192.168.1.7/ourTeam/sign.php</string>
+    <string name="Login_Up_URL">http://192.168.1.7/ourTeam/login.php</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+
+
+    <string name="tv_medicine_name">Medicine Name</string>
+    <string name="et_enter_medicine">Enter Medicine Name</string>
+    <string name="add_reminder_tv_reminder">Reminder</string>
+    <string name="add_reminder_tv_date">Date</string>
+    <string name="add_reminder_tv_time">Time</string>
+    <string name="add_reminder_tv_repetition">Repetition</string>
+    <string name="add_reminder_et_repetition_interval">Enter Repetition Interval</string>
+    <string name="add_reminder_tv_type_of_repetition">Type of Repetition</string>
+    <string name="toolbar_name_new_medicine">New Medicine</string>
+
+    <!--    alarm -->
+    <string name="activity_main_tv_large">Click on the button below to begin creating your reminder!</string>
+    <string name="title_activity_add_reminder">Add Reminder</string>
+    <string name="title_activity_edit_reminder">Edit Reminder</string>
+    <string name="title_activity_licenses">Licenses</string>
+
+    <string name="add_reminder">Reminder</string>
+    <string name="details">Details</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="repeat">Repeat</string>
+    <string name="repeat_off">Off</string>
+    <string name="repeat_no">Repetition Interval </string>
+    <string name="repeat_type">Type of Repetitions</string>
+
+    <string name="action_discard_reminder">Discard Reminder</string>
+    <string name="action_save_reminder">Save Reminder</string>
+
+    <string name="editor_activity_title_new_reminder">Add Reminder Details</string>
+    <string name="editor_activity_title_edit_reminder">Edit Reminder</string>
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+    <string name="discard">Discard</string>
+
+    <string name="keep_editing">Keep Editing</string>
+    <string name="delete_dialog_msg">Delete this Reminder?</string>
+
+    <string name="delete">Delete</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="editor_delete_reminder_successful">Reminder deleted</string>
+
+    <string name="editor_delete_reminder_failed">Error with deleting reminder</string>
+
+    <string name="editor_insert_reminder_successful">Reminder saved</string>
+
+    <string name="editor_insert_reminder_failed">Error with saving reminder</string>
+
+    <string name="editor_update_reminder_successful">Reminder updated</string>
+
+    <string name="editor_update_reminder_failed">Error with updating reminder</string>
+
+    <string name="reminder_title">AlarmReminder</string>
+    <string name="contacts">Emergency contacts</string>
+    <string name="change_the_language">Change the language</string>
+    <string name="notification">Notification</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+    <string name="contact_us">Contact us</string>
+    <string name="log_out">Log out</string>
+    <string name="reminder_save">Save</string>
+    <string name="repeat_weekly">Repeat Weekly</string>
+    <string name="profile_state">YOUR STATUS</string>
+    <string name="profile_isoDate">Isolation Date:</string>
+    <string name="profile_nonInfected">You are a non-infected person take care :)</string>
+    <string name="advice1">You must wear a full mask as a precaution in hospitals and closed crowded places </string>
+    <string name="advice2">Wash hands thoroughly with soap and water or disinfectants, especially after coughing or sneezing or using toilets </string>
+    <string name="advice3">Avoid contact with people with respiratory symptoms and maintain a distance of at least 1 meter between yourself and anyone with symptoms </string>
+    <string name="advice4">Do not eat any animal products uncooked, and guard not to mix them with other flavors </string>
+    <string name="advice5">Not to drink coffee and any other liquids from a cup that others drink from it</string>
+    <string name="advice6">Avoid contact with the eyes, nose and mouth with unwashed hands </string>
+    <string name="advice7">Cleaning surfaces continuously and sterilizing them to maintain general cleanliness</string>
+    <string name="advice8">Cover the mouth when coughing and sneezing with a tissue or bending the elbow and dispose of the tissue in the trash and wash hands immediately</string>
+    <string name="advice9">Avoid contact with animals, whether alive or dead, and avoid contact with the brightest near these animals</string>
+    <string name="advice10">Maintaining that the throat is moist by drinking more water constantly</string>
+    <string name="advice11">Smoking is harmful to your health, and hookah is a focus of viruses that you reap, especially in public places</string>
+    <string name="advice12">Refrain from kissing and just shake hands</string>
+    <string name="advice13">Avoid spitting on the floor </string>
+    <string name="advice14">Stay at home when you have any symptoms such as high temperature, coughing or sneezing </string>
+    <string name="advice15">You must measure the temperature if you can be in crowded places </string>
+    <string-array name="number_of_repetition">
+        <item>12 Hours</item>
+        <item>8 Hours</item>
+        <item>6 Hours</item>
+    </string-array>
+</resources>

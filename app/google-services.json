@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1015314325950",
+    "firebase_url": "https://map1-a0593-default-rtdb.firebaseio.com",
+    "project_id": "map1-a0593",
+    "storage_bucket": "map1-a0593.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015314325950:android:974966a3f4134d4412d9ef",
+        "android_client_info": {
+          "package_name": "com.example.covid_19tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015314325950-c7m0lle7gkfhba6hho3omdrcbduho9nj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMxQx_Vnd3wYTIDWtBLoamWJNnpBsJxLA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1015314325950-c7m0lle7gkfhba6hho3omdrcbduho9nj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

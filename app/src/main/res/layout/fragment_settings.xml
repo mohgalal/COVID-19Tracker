@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.SettingsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/backgronund_color"
+        app:layout_constraintBottom_toTopOf="@id/ground_view1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/ground_view1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:layout_marginBottom="@dimen/_340sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/gear_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/ground_view1"
+        app:layout_constraintEnd_toEndOf="@id/ground_view1"
+        app:layout_constraintStart_toStartOf="@id/ground_view1"
+        app:layout_constraintTop_toBottomOf="@id/top_container"
+        app:layout_constraintTop_toTopOf="@id/ground_view1"
+        android:src="@drawable/avd3_anim" />
+
+    <View
+        android:id="@+id/view_sittings0"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gear_iv" />
+
+    <TextView
+        android:id="@+id/emergency_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:drawableStart="@drawable/ic_emergency_call"
+        android:drawableEnd="@drawable/ic_next"
+        android:drawablePadding="@dimen/_10sdp"
+        android:paddingStart="@dimen/_5sdp"
+        android:text="@string/contacts"
+        android:textColor="#000"
+        android:textSize="@dimen/_18sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_sittings0" />
+
+    <View
+        android:id="@+id/view_sittings1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emergency_tv" />
+
+    <TextView
+        android:id="@+id/change_language_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:drawableStart="@drawable/ic_translation"
+        android:drawableEnd="@drawable/ic_next"
+        android:drawablePadding="10dp"
+        android:paddingStart="@dimen/_5sdp"
+        android:text="@string/change_the_language"
+        android:textColor="#000"
+        android:textSize="@dimen/_18sdp"
+        app:layout_constraintEnd_toEndOf="@id/emergency_tv"
+        app:layout_constraintStart_toStartOf="@id/emergency_tv"
+        app:layout_constraintTop_toBottomOf="@id/view_sittings1" />
+
+    <View
+        android:id="@+id/view_sittings2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/change_language_tv" />
+
+    <TextView
+        android:id="@+id/app_notification_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:drawableStart="@drawable/ic_notification"
+        android:drawablePadding="10dp"
+        android:paddingStart="@dimen/_5sdp"
+        android:text="@string/notification"
+        android:textColor="#000"
+        android:textSize="@dimen/_18sdp"
+        app:layout_constraintEnd_toEndOf="@id/emergency_tv"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/emergency_tv"
+        app:layout_constraintTop_toBottomOf="@id/view_sittings2" />
+
+    <Switch
+        android:id="@+id/notification_sw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="@id/app_notification_tv"
+        app:layout_constraintEnd_toEndOf="@id/app_notification_tv"
+        app:layout_constraintTop_toTopOf="@id/app_notification_tv"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <View
+        android:id="@+id/view_sittings3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notification_sw" />
+
+    <TextView
+        android:id="@+id/dark_mode_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:drawableStart="@drawable/ic_dark_mode1"
+        android:drawablePadding="10dp"
+        android:paddingStart="@dimen/_5sdp"
+        android:text="@string/dark_mode"
+        android:textColor="#000"
+        android:textSize="@dimen/_18sdp"
+        app:layout_constraintEnd_toEndOf="@id/emergency_tv"
+        app:layout_constraintStart_toStartOf="@id/emergency_tv"
+        app:layout_constraintTop_toBottomOf="@id/view_sittings3" />
+
+    <Switch
+        android:id="@+id/dark_mode_sw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="@id/dark_mode_tv"
+        app:layout_constraintEnd_toEndOf="@id/dark_mode_tv"
+        app:layout_constraintTop_toTopOf="@id/dark_mode_tv"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <View
+        android:id="@+id/view_sittings4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dark_mode_tv" />
+
+    <TextView
+        android:id="@+id/contact_us_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:drawableStart="@drawable/ic_contact"
+        android:drawableEnd="@drawable/ic_next"
+        android:drawablePadding="10dp"
+        android:paddingStart="@dimen/_5sdp"
+        android:text="@string/contact_us"
+        android:textColor="#000"
+        android:textSize="@dimen/_18sdp"
+        app:layout_constraintEnd_toEndOf="@id/emergency_tv"
+        app:layout_constraintStart_toStartOf="@id/emergency_tv"
+        app:layout_constraintTop_toBottomOf="@id/view_sittings4" />
+
+    <View
+        android:id="@+id/view_sittings5"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contact_us_tv" />
+
+    <TextView
+        android:id="@+id/logout_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:drawableStart="@drawable/ic_exit"
+        android:drawableEnd="@drawable/ic_next"
+        android:drawablePadding="10dp"
+        android:paddingStart="@dimen/_5sdp"
+        android:text="@string/log_out"
+        android:textColor="#000"
+        android:textSize="@dimen/_18sdp"
+        app:layout_constraintEnd_toEndOf="@id/view_sittings5"
+        app:layout_constraintStart_toStartOf="@id/view_sittings5"
+        app:layout_constraintTop_toBottomOf="@id/view_sittings5" />
+
+    <View
+        android:id="@+id/view_sittings6"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logout_tv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

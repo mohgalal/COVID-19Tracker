@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.AddReminderFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/backgronund_color"
+        app:layout_constraintBottom_toTopOf="@id/ground_view1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/ground_view1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:layout_marginBottom="@dimen/_340sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_115sdp"
+        app:lottie_rawRes="@raw/bellanimation"
+        android:id="@+id/lotti"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+    app:layout_constraintBottom_toTopOf="@id/ground_view1"
+    app:layout_constraintEnd_toEndOf="@id/ground_view1"
+    app:layout_constraintStart_toStartOf="@id/ground_view1"
+    app:layout_constraintTop_toBottomOf="@id/top_container"
+    app:layout_constraintTop_toTopOf="@id/ground_view1"/>
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/add_reminder_cv_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:elevation="@dimen/_4sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_4sdp"
+        android:drawablePadding="@dimen/_10sdp"
+
+
+        android:textSize="@dimen/_18sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lotti"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:hint="@string/et_enter_medicine">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_reminder_et_enter_medicine_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/add_reminder_cv_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_reminder_cv_1"
+        android:layout_margin="@dimen/_12sdp"
+        android:elevation="@dimen/_4sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_reminder_cv_1"
+        app:cardElevation="@dimen/_4sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/add_reminder_tv_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    android:drawableStart="@drawable/ic_timer"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:text="@string/add_reminder_tv_time"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/time_repeat_sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:text="@string/time_repeat_sp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+
+                    style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                    android:entries="@array/number_of_repetition"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/add_reminder_cv_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_reminder_cv_2"
+        android:layout_margin="@dimen/_12sdp"
+        android:elevation="@dimen/_4sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="@id/add_reminder_cv_1"
+        app:layout_constraintStart_toStartOf="@id/add_reminder_cv_1"
+        app:layout_constraintTop_toBottomOf="@id/add_reminder_cv_2"
+        app:cardElevation="@dimen/_4sdp">
+
+        <LinearLayout
+            android:id="@+id/repeat_weekly_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/add_reminder_tv_type_of_repetition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:drawableStart="@drawable/ic_repeat"
+                android:drawablePadding="@dimen/_8sdp"
+                android:text="@string/repeat_weekly"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/update_btn"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/_18sdp"
+        android:padding="@dimen/_8sdp"
+        android:text="@string/reminder_save"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:cornerRadius="@dimen/_30sdp"
+        app:layout_constraintEnd_toEndOf="@id/add_reminder_cv_2"
+        app:layout_constraintStart_toStartOf="@id/add_reminder_cv_2"
+        app:layout_constraintTop_toBottomOf="@id/add_reminder_cv_3"
+
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

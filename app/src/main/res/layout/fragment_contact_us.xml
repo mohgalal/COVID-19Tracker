@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.ContactUsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/backgronund_color"
+        app:layout_constraintBottom_toTopOf="@id/ground_view1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/back_contact_iv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:src="@drawable/ic_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <View
+        android:id="@+id/ground_view1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:layout_marginBottom="@dimen/_340sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/contact_us_iv"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        app:layout_constraintBottom_toTopOf="@id/ground_view1"
+        app:layout_constraintEnd_toEndOf="@id/ground_view1"
+        app:layout_constraintStart_toStartOf="@id/ground_view1"
+        app:layout_constraintTop_toBottomOf="@id/top_container"
+        app:layout_constraintTop_toTopOf="@id/ground_view1"
+        android:src="@drawable/ic_contact" />
+    <View
+        android:id="@+id/view_contact1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contact_us_iv" />
+    <TextView
+        android:id="@+id/contact_email_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_7sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="covid19trackerteam1@gmail.com"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:textSize="@dimen/_18sdp"
+        app:layout_constraintEnd_toEndOf="@id/contact_us_iv"
+        app:layout_constraintStart_toStartOf="@id/contact_us_iv"
+        app:layout_constraintTop_toBottomOf="@id/contact_us_iv" />
+
+    <View
+        android:id="@+id/view_contact2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_9sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contact_email_tv" />
+
+    <ImageView
+        android:id="@+id/whatsapp_iv"
+        app:layout_constraintStart_toStartOf="@id/view_contact2"
+        app:layout_constraintTop_toBottomOf="@id/view_contact2"
+        android:src="@drawable/ic_whatsapp"
+        android:layout_marginStart="@dimen/_60sdp"
+        android:layout_marginTop="@dimen/_28sdp"
+        android:layout_width="@dimen/_53sdp"
+        android:layout_height="@dimen/_53sdp"/>
+
+    <ImageView
+        android:id="@+id/facebook_iv"
+        app:layout_constraintStart_toEndOf="@id/whatsapp_iv"
+        app:layout_constraintTop_toBottomOf="@id/view_contact2"
+        android:src="@drawable/ic_facebookk"
+        android:layout_marginStart="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_28sdp"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"/>
+
+    <ImageView
+        android:id="@+id/instagram_iv"
+        app:layout_constraintStart_toStartOf="@id/facebook_iv"
+        app:layout_constraintEnd_toEndOf="@id/facebook_iv"
+        app:layout_constraintTop_toBottomOf="@id/facebook_iv"
+        android:src="@drawable/ic_instagram"
+        android:layout_marginTop="@dimen/_33sdp"
+        android:layout_width="@dimen/_51sdp"
+        android:layout_height="@dimen/_51sdp"/>
+
+    <ImageView
+        android:id="@+id/covid19logo_iv"
+        app:layout_constraintStart_toStartOf="@id/whatsapp_iv"
+        app:layout_constraintEnd_toEndOf="@id/whatsapp_iv"
+        app:layout_constraintTop_toBottomOf="@id/whatsapp_iv"
+        android:src="@drawable/logo"
+        android:layout_marginEnd="@dimen/_22sdp"
+        android:layout_marginStart="@dimen/_26sdp"
+        android:layout_marginTop="@dimen/_28sdp"
+        android:layout_width="@dimen/_59sdp"
+        android:layout_height="@dimen/_59sdp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

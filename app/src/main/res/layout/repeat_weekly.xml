@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chechbox_constrain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/select_days_tv"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select the days"
+            android:textColor="#000"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:textSize="@dimen/_18sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/saturday_cb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Saturday"
+            android:paddingStart="@dimen/_4sdp"
+            android:textColor="#000"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/select_days_tv" />
+
+
+        <CheckBox
+            android:id="@+id/sunday_cb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Sunday"
+            android:paddingStart="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:textColor="#000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/saturday_cb" />
+
+        <CheckBox
+            android:id="@+id/monday_cb"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_height="wrap_content"
+            android:text="Monday"
+            android:textColor="#000"
+            android:paddingStart="@dimen/_4sdp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sunday_cb" />
+
+        <CheckBox
+            android:id="@+id/tuesday_cb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Tuesday"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:textColor="#000"
+            android:paddingStart="@dimen/_4sdp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/monday_cb" />
+
+        <CheckBox
+            android:id="@+id/wednesday_cb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Wednesday"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:paddingStart="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tuesday_cb" />
+
+        <CheckBox
+            android:id="@+id/thursday_cb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Thursday"
+            android:paddingStart="@dimen/_4sdp"
+            android:textColor="#000"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/wednesday_cb" />
+
+        <CheckBox
+            android:id="@+id/friday_cb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Friday"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:textColor="#000"
+            android:paddingStart="@dimen/_4sdp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/thursday_cb" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

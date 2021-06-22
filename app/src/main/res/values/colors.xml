@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <color name="colorPrimary">#6200EE</color>-->
+<!--    <color name="colorPrimaryDark">#3700B3</color>-->
+<!--    <color name="colorAccent">#03DAC5</color>-->
+    <color name="colorPrimaryNew">#0A90B6</color>
+
+    <!--    alarm color -->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#0A90B6</color>
+    <color name="fab_pressed">#546e7a</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="blue">#0000ff</color>
+    <color name="yellow">#ffff00</color>
+    <color name="Gold">#ffD700</color>
+    <color name="light_yellow">#ffffE0</color>
+    <color name="green_yellow">#ADff2f</color>
+    <color name="lime">#00ff00</color>
+    <color name="lawn_green">#7cfc00</color>
+    <color name="lime_green">#32cd32</color>
+    <color name="green">#008000</color>
+    <color name="dark_green">#006400</color>
+    <color name="cyan">#00ffff</color>
+    <color name="dark_blue">#00008b</color>
+    <color name="silver">#c0c0c0</color>
+    <color name="gray">#808080</color>
+    <color name="dark_gray">#a9a9a9</color>
+    <color name="red">#ff0000</color>
+    <color name="dark_red">#8b0000</color>
+    <color name="orange">#ffa500</color>
+    <color name="dark_orange">#ff8c00</color>
+    <color name="orange_red">#ff4500</color>
+    <color name="pink">#ffc0cb</color>
+    <color name="light_pink">#ffb6c1</color>
+    <color name="hot_pink">#ff69b4</color>
+    <color name="deep_pink">#ff1493</color>
+    <color name="olive">#808000</color>
+</resources>

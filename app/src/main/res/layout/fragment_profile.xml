@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/backgronund_color"
+        app:layout_constraintBottom_toTopOf="@id/view1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:layout_marginBottom="@dimen/_340sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="114dp"
+        android:layout_height="114dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_man"
+        app:civ_border_color="#000000"
+        app:civ_border_width="3dp"
+        app:layout_constraintBottom_toTopOf="@id/view1"
+        app:layout_constraintEnd_toEndOf="@id/view1"
+        app:layout_constraintStart_toStartOf="@id/view1"
+        app:layout_constraintTop_toBottomOf="@id/top_container" />
+
+    <TextView
+        android:id="@+id/profile_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="Mohamed galal"
+        android:textColor="#201300"
+        android:textSize="@dimen/_18sdp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/profile_image"
+        app:layout_constraintStart_toStartOf="@id/profile_image"
+        app:layout_constraintTop_toBottomOf="@id/profile_image" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/profile_status_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:background="@drawable/button_shape"
+        android:text="Your Status"
+        android:textColor="#000"
+        android:textSize="@dimen/_18sdp"
+        app:layout_constraintEnd_toEndOf="@id/profile_image"
+        app:layout_constraintStart_toStartOf="@id/profile_image"
+        app:layout_constraintTop_toBottomOf="@id/profile_image" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#111"
+        app:layout_constraintRight_toLeftOf="@id/infected_container"
+        app:layout_constraintTop_toBottomOf="@id/profile_status_btn" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:background="@drawable/backgronund_color"
+        android:outlineAmbientShadowColor="#111"
+        app:layout_constraintStart_toStartOf="@id/profile_status_btn"
+        app:layout_constraintTop_toBottomOf="@id/view2" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/non_infected_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        app:layout_constraintEnd_toEndOf="@id/view2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/view2"
+        app:layout_constraintTop_toBottomOf="@id/view2">
+
+        <TextView
+            android:id="@+id/good_man_tv"
+            android:text="You are a non-infected person take care :)"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold"
+            android:textColor="#111"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_18sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            app:layout_constraintStart_toStartOf="@id/good_man_tv"
+            app:layout_constraintEnd_toEndOf="@id/good_man_tv"
+            app:layout_constraintTop_toBottomOf="@id/good_man_tv"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:lottie_rawRes="@raw/covid_prevent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_170sdp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/infected_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        app:layout_constraintEnd_toEndOf="@id/view3"
+        app:layout_constraintStart_toStartOf="@id/view3"
+        app:layout_constraintTop_toBottomOf="@id/view3">
+
+
+        <TextView
+            android:id="@+id/isolation_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:text="Isolation Date:"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:textSize="@dimen/_18sdp"
+            app:layout_constraintBottom_toTopOf="@id/the_date_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/the_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="2021-3-9"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:textSize="@dimen/_18sdp"
+            app:layout_constraintEnd_toEndOf="@id/isolation_date_tv"
+            app:layout_constraintStart_toStartOf="@id/isolation_date_tv"
+            app:layout_constraintTop_toBottomOf="@id/isolation_date_tv" />
+
+        <TextView
+            android:id="@+id/isolation_period_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/the_date_tv" />
+
+        <TextView
+            android:id="@+id/isolation_period2_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/the_date_tv" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/progress_container"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_170sdp"
+            android:layout_marginBottom="@dimen/_70sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/the_date_tv">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:background="@drawable/circle_shape"
+                android:indeterminate="false"
+                android:max="14"
+                android:progress="13"
+                android:progressDrawable="@drawable/circle_progress_bar"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/progress_days_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:text="9 days"
+                android:textColor="#111"
+                android:textSize="@dimen/_22sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

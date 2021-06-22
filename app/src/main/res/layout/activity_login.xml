@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/all_activity_background_shape"
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/covid_login_iv"
+        android:layout_width="@dimen/_85sdp"
+        android:layout_height="@dimen/_85sdp"
+        android:layout_marginTop="@dimen/_32sdp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/covid_login_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:fontFamily="@font/allan_bold"
+        android:text="@string/login_tv_covid_19_tracker"
+        android:textColor="#fff"
+        android:textSize="24sp"
+
+        app:layout_constraintEnd_toEndOf="@id/covid_login_iv"
+        app:layout_constraintStart_toStartOf="@id/covid_login_iv"
+        app:layout_constraintTop_toBottomOf="@id/covid_login_iv" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_165sdp"
+        android:background="@drawable/login_layout_round_shape"
+        android:padding="@dimen/_12sdp">
+
+        <TextView
+            android:id="@+id/login_now_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="@string/login_tv_login"
+            android:textColor="@color/colorPrimaryNew"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.github.ybq.android.spinkit.SpinKitView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/progress_login"
+            style="@style/SpinKitView.Large.Circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_120sdp"
+            app:SpinKit_Color="#6F7073"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- old margintop is 8-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/login_text_input1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:hint="@string/login_et_email_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_now_tv">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!--            <com.google.android.material.textfield.TextInputLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:id="@+id/login_text_input2"-->
+        <!--                android:layout_marginTop="@dimen/_8sdp"-->
+        <!--                android:hint="@string/login_et_password_hint"-->
+        <!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+        <!--                app:passwordToggleEnabled="true"-->
+        <!--                >-->
+        <!--                <com.google.android.material.textfield.TextInputEditText-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:inputType="textPassword"-->
+        <!--                    android:id="@+id/login_et_pass"-->
+
+        <!--                    />-->
+        <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/chechbox_constrain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/login_text_input1"
+            app:layout_constraintTop_toBottomOf="@id/login_text_input1">
+
+            <CheckBox
+                android:id="@+id/login_chb_stay_signed_in"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/login_chb_stay_signed_in"
+                android:textColor="#000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!--                <TextView-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:id="@+id/login_forget_pass"-->
+            <!--                    android:text="@string/login_tv_forget_password"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    android:layout_weight="1"-->
+            <!--                    android:textColor="#000"-->
+            <!--                    android:paddingStart="@dimen/_35sdp"-->
+            <!--                    android:paddingLeft="@dimen/_35sdp"-->
+            <!--                    />-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/login_btn_login"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/login_btn_login"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            app:cornerRadius="@dimen/_30sdp"
+            app:layout_constraintEnd_toEndOf="@id/chechbox_constrain"
+            app:layout_constraintStart_toStartOf="@id/chechbox_constrain"
+            app:layout_constraintTop_toBottomOf="@id/chechbox_constrain"
+
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/login_btn_sign_up"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/login_btn_sign_up"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            app:cornerRadius="@dimen/_30sdp"
+            app:layout_constraintEnd_toEndOf="@id/login_btn_login"
+            app:layout_constraintStart_toStartOf="@id/login_btn_login"
+            app:layout_constraintTop_toBottomOf="@id/login_btn_login" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

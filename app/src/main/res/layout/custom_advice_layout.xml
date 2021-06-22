@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/_16sdp"
+    app:cardElevation="@dimen/_8sdp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/custom_advice_img_image"
+            android:layout_width="114dp"
+            android:layout_height="114dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_man"
+            app:civ_border_color="#000000"
+            app:civ_border_width="3dp" />
+
+        <TextView
+            android:id="@+id/custom_advice_tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/custom_advice_img_image"
+            android:layout_margin="@dimen/_8sdp"
+            android:text="@string/custome_advice_txt_advice_description"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
