@@ -125,7 +125,13 @@
     <string name="advice14">Stay at home when you have any symptoms such as high temperature, coughing or sneezing </string>
     <string name="advice15">You must measure the temperature if you can be in crowded places </string>
     <string name="total_infected">Total Infected</string>
-    <string name="recovery_cases">Recovery Cases</string>
+    <string name="recovery_cases">Total User</string>
+    <string name="contact_us_call_one">Call one of the following numbers to get help :</string>
+    <string name="nav_advice">Advice</string>
+    <string name="nav_alarm">Alarm</string>
+    <string name="nav_map">Map</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_settings">Settings</string>
     <string-array name="number_of_repetition">
         <item>12 Hours</item>
         <item>8 Hours</item>
