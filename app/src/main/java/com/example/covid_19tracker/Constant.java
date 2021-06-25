@@ -6,6 +6,8 @@ public class Constant {
     public static final String LOGIN_URL =BASE_URL + "login.php";
     public static final String PROFILE_URL =BASE_URL + "profile.php";
     public static final String QUESTION_URL =BASE_URL + "question.php";
+    public static final String Statistics_URL =BASE_URL + "statistics.php";
+    public static final String Statisticstwo_URL =BASE_URL + "statisticstwo.php";
     public static final String SSN_SP_KEY = "SSNSharedPreferncesKey";
     public static final String SSN_FILE_NAME = "SSNSharedPrefernces";
     public static final String EXTRA_SSN ="message";

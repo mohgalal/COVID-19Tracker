@@ -91,18 +91,18 @@ public class Signup extends AppCompatActivity {
             public void onClick(View v) {
 
 //                Toast.makeText(Signup.this, "moooo", Toast.LENGTH_LONG).show();
-                //signUp(v);
-                name = et_name.getText().toString();
-                SSN1 = et_ssn.getText().toString().trim();
-                phone1 = et_phone.getText().toString().trim();
-                editor = sharedPreferences.edit();
-                editor.putString(SSN_SP_KEY, SSN1);
-                editor.apply();
-                if (SSN1.equals("")) {
-                    et_ssn.setError("Please Enter Your SSN");
-                }else {
-                Intent intent = new Intent(Signup.this, Question.class);
-                startActivity(intent);}
+                signUp(v);
+//                name = et_name.getText().toString();
+//                SSN1 = et_ssn.getText().toString().trim();
+//                phone1 = et_phone.getText().toString().trim();
+//                editor = sharedPreferences.edit();
+//                editor.putString(SSN_SP_KEY, SSN1);
+//                editor.apply();
+//                if (SSN1.equals("")) {
+//                    et_ssn.setError("Please Enter Your SSN");
+//                }else {
+//                Intent intent = new Intent(Signup.this, Question.class);
+//                startActivity(intent);}
 //                SSNModel model = new SSNModel(Long.parseLong(SSN1));
 //                insertResult = db.insertSSN(model);
 //                if(insertResult){

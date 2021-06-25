@@ -61,6 +61,7 @@
         android:stopWithTask="true"
             >
         </service>
+
         <receiver android:name=".AlarmReceiver" />
     </application>
 

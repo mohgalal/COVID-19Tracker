@@ -54,6 +54,7 @@ public class AddReminderFragment extends Fragment {
     String title;
     String time;
     int day;
+    int hour,minute;
     Calendar calendar = Calendar.getInstance();
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -106,8 +107,8 @@ public class AddReminderFragment extends Fragment {
             public void onClick(View v) {
 
                 //day = calendar.get(Calendar.DAY_OF_MONTH);
-                int hour = calendar.get(Calendar.HOUR_OF_DAY);
-                int minute = calendar.get(Calendar.MINUTE);
+                 hour = calendar.get(Calendar.HOUR_OF_DAY);
+                 minute = calendar.get(Calendar.MINUTE);
                 TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
@@ -257,12 +258,27 @@ public class AddReminderFragment extends Fragment {
         intent.putExtra("text", text);
         intent.putExtra("time", time);
 
+        Calendar calAlarm = Calendar.getInstance();
+        Calendar calNow = Calendar.getInstance();
+
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
         String dateandtime = timeTonotify;
         DateFormat formatter = new SimpleDateFormat("hh:mm");
         try {
             Date date1 = formatter.parse(dateandtime);
             am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
+
+            calAlarm.setTime(date1);
+            calNow.setTime(date1);
+
+            calAlarm.set(Calendar.HOUR_OF_DAY,hour);
+            calAlarm.set(Calendar.MINUTE,minute);
+            calAlarm.set(Calendar.SECOND,0);
+
+            if (calAlarm.before(calNow)){
+
+                calAlarm.add(Calendar.DATE,1);
+            }
 
         } catch (ParseException e) {
             e.printStackTrace();
