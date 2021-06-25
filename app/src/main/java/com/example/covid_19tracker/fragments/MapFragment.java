@@ -21,6 +21,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -51,6 +53,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -90,6 +93,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     SupportMapFragment mapFragment;
     public boolean isPermissionChecked=false;
     int startDay,startYear,endDay,endYear,currentDay,currentYear;
+    ImageView ivStatisticsInfo;
+    TextView totalInfected,recoveryCases;
 
     SharedPreferences.Editor editor;
 
@@ -128,6 +133,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_map, container, false);
+        ivStatisticsInfo = view.findViewById(R.id.iv_statistics_info);
 
 
         return view;
@@ -162,6 +168,27 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
            // Toast.makeText(getActivity(), "default lat,lng : " + defaultLat2+", "+defaultLng2, Toast.LENGTH_SHORT).show();
         }
+
+        //for getting Statistics Info
+        ivStatisticsInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(getActivity(), "sta info", Toast.LENGTH_SHORT).show();
+                //Create Bottom Sheet dialog
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
+                bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog_for_statistics);
+                bottomSheetDialog.setCanceledOnTouchOutside(false);
+
+                //write code here
+                totalInfected = bottomSheetDialog.findViewById(R.id.total_infected);
+                recoveryCases = bottomSheetDialog.findViewById(R.id.recovery_cases);
+
+                totalInfected.setText(40000+"");
+                bottomSheetDialog.show();
+
+            }
+        });
+
     }
 
 
