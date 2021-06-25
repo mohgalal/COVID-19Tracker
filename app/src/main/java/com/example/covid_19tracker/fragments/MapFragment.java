@@ -1,7 +1,6 @@
 package com.example.covid_19tracker.fragments;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -9,14 +8,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.hardware.SensorManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,13 +28,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import com.example.covid_19tracker.Login;
 import com.example.covid_19tracker.Question;
 import com.example.covid_19tracker.R;
 import com.example.covid_19tracker.User;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
@@ -45,21 +40,25 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.internal.IGoogleMapDelegate;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -70,6 +69,8 @@ import static com.example.covid_19tracker.Constant.PERMISSIONS_REQUEST_ACCESS_FI
 import static com.example.covid_19tracker.Constant.PERMISSIONS_REQUEST_ENABLE_GPS;
 import static com.example.covid_19tracker.Constant.SSN_FILE_NAME;
 import static com.example.covid_19tracker.Constant.SSN_SP_KEY;
+import static com.example.covid_19tracker.Constant.Statistics_URL;
+import static com.example.covid_19tracker.Constant.Statisticstwo_URL;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
 
@@ -94,8 +95,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     public boolean isPermissionChecked=false;
     int startDay,startYear,endDay,endYear,currentDay,currentYear;
     ImageView ivStatisticsInfo;
-    TextView totalInfected,recoveryCases;
-
+    TextView totalInfected, totalPeople;
+    String stotalInfected,stotalPeople;
     SharedPreferences.Editor editor;
 
 
@@ -177,13 +178,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 //Create Bottom Sheet dialog
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
                 bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog_for_statistics);
-                bottomSheetDialog.setCanceledOnTouchOutside(false);
+                bottomSheetDialog.setCanceledOnTouchOutside(true);
 
                 //write code here
                 totalInfected = bottomSheetDialog.findViewById(R.id.total_infected);
-                recoveryCases = bottomSheetDialog.findViewById(R.id.recovery_cases);
+                totalPeople = bottomSheetDialog.findViewById(R.id.recovery_cases);
 
-                totalInfected.setText(40000+"");
+                httpStatisticsRetrieve();
+                httpStatistics2Retrieve();
                 bottomSheetDialog.show();
 
             }
@@ -581,5 +583,108 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     public void onPause() {
         super.onPause();
         isPermissionChecked=true;
+    }
+    private void httpStatisticsRetrieve() {
+        RequestParams params = new RequestParams();
+        //params.put("infected",infected);
+        //params.put("SSN",ssn);
+        AsyncHttpClient async =new AsyncHttpClient();
+        async.setTimeout(6000000);
+        async.post(Statistics_URL,params,new AsyncHttpResponseHandler(){
+
+            public void onSuccess(String response) {
+                super.onSuccess(response);
+                // Log.d(TAG, "response: ");
+                //Toast.makeText(Login.this, "Success", Toast.LENGTH_SHORT).show();
+                try {
+//                   progressDialog.dismiss();
+                    Log.d(TAG, response);
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray jsonArray = jsonObject.getJSONArray("result");
+                    JSONObject JO = jsonArray.getJSONObject(0);
+                    Log.d(TAG, JO.toString());
+                    stotalInfected = JO.getString("Number_of_infected");
+                    Toast.makeText(getContext(), "here we here"+stotalInfected, Toast.LENGTH_SHORT).show();
+                    totalInfected.setText(stotalInfected);
+                    //totalPeople.setText(stotalPeople);
+
+                    //Toast.makeText(getContext(), "sorry, try again", Toast.LENGTH_SHORT).show();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Throwable error, String content) {
+                super.onFailure(statusCode, error, content);
+                Log.d(TAG, "onFailure: error");
+                Toast.makeText(getContext(), error.getMessage()+content, Toast.LENGTH_SHORT).show();
+                if (statusCode == 404){
+                    Toast.makeText(getContext(), "not found", Toast.LENGTH_SHORT).show();
+                }
+                else if (statusCode >=500 && statusCode <= 600){
+                    Toast.makeText(getContext(), "server error", Toast.LENGTH_SHORT).show();
+                }
+                else if (statusCode == 403){
+                    Toast.makeText(getContext(), "forbidden error", Toast.LENGTH_SHORT).show();
+                }
+
+                else
+                    Toast.makeText(getContext(), "Unexpected error ", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void httpStatistics2Retrieve() {
+        RequestParams params = new RequestParams();
+        //params.put("infected",infected);
+        //params.put("SSN",ssn);
+        AsyncHttpClient async =new AsyncHttpClient();
+        async.setTimeout(6000000);
+        async.post(Statisticstwo_URL,params,new AsyncHttpResponseHandler(){
+
+            public void onSuccess(String response) {
+                super.onSuccess(response);
+                // Log.d(TAG, "response: ");
+                //Toast.makeText(Login.this, "Success", Toast.LENGTH_SHORT).show();
+                try {
+//                   progressDialog.dismiss();
+                    Log.d(TAG, response);
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray jsonArray = jsonObject.getJSONArray("result");
+                    JSONObject JO = jsonArray.getJSONObject(0);
+                    Log.d(TAG, JO.toString());
+                    stotalPeople = JO.getString("Total_number_of_users");
+                    Toast.makeText(getContext(), "here we here"+stotalPeople, Toast.LENGTH_SHORT).show();
+                   // totalInfected.setText(stotalInfected);
+                    totalPeople.setText(stotalPeople);
+
+                    //Toast.makeText(getContext(), "sorry, try again", Toast.LENGTH_SHORT).show();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Throwable error, String content) {
+                super.onFailure(statusCode, error, content);
+                Log.d(TAG, "onFailure: error");
+                Toast.makeText(getContext(), error.getMessage()+content, Toast.LENGTH_SHORT).show();
+                if (statusCode == 404){
+                    Toast.makeText(getContext(), "not found", Toast.LENGTH_SHORT).show();
+                }
+                else if (statusCode >=500 && statusCode <= 600){
+                    Toast.makeText(getContext(), "server error", Toast.LENGTH_SHORT).show();
+                }
+                else if (statusCode == 403){
+                    Toast.makeText(getContext(), "forbidden error", Toast.LENGTH_SHORT).show();
+                }
+
+                else
+                    Toast.makeText(getContext(), "Unexpected error ", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

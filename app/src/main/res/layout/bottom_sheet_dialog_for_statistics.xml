@@ -1,114 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/all_activity_background_shape"
+    android:background="@drawable/all_activity_background_shape">
 
-
-    >
     <ImageView
+        android:id="@+id/logo"
         android:layout_width="@dimen/_80sdp"
         android:layout_height="@dimen/_80sdp"
-        android:id="@+id/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_32sdp"
         android:src="@drawable/logo" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_below="@id/logo"
-android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_marginHorizontal="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_32sdp"
-        >
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cv1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:elevation="@dimen/_3sdp"
-        app:cardCornerRadius="@dimen/_8sdp"
-        android:layout_marginRight="@dimen/_4sdp"
-        app:cardElevation="@dimen/_3sdp">
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:id="@+id/repeat_weekly_layout"
-            android:layout_width="match_parent"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv1"
+            android:layout_width="@dimen/_110sdp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginRight="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:elevation="@dimen/_3sdp"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="@dimen/_3sdp">
 
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/repeat_weekly_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_6sdp"
-                android:drawableTop="@drawable/ic_statistic_mask"
-                android:drawablePadding="@dimen/_6sdp"
-                android:text="@string/total_infected"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/total_infected"
-                android:text="30000"
-                android:layout_gravity="center"
-                android:layout_marginHorizontal="@dimen/_6sdp"
-                android:layout_marginBottom="@dimen/_6sdp"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:orientation="vertical">
 
-        </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_6sdp"
+                    android:drawableTop="@drawable/ic_statistic_mask"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:text="@string/total_infected"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cv2"
-        android:layout_toRightOf="@id/cv1"
-        android:layout_weight="1"
-android:layout_marginLeft="@dimen/_4sdp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="@dimen/_3sdp"
-        app:cardCornerRadius="@dimen/_8sdp"
-        android:layout_below="@id/logo"
-        app:cardElevation="@dimen/_3sdp">
+                <TextView
+                    android:id="@+id/total_infected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_6sdp"
+                    android:layout_marginBottom="@dimen/_6sdp"
+                    android:text="30000"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv2"
+            android:layout_width="@dimen/_110sdp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_below="@id/logo"
+            android:layout_marginLeft="@dimen/_4sdp"
+            android:layout_toRightOf="@id/cv1"
+            android:layout_weight="1"
+            android:elevation="@dimen/_3sdp"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="@dimen/_3sdp">
 
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_6sdp"
-                android:drawableTop="@drawable/ic_kindness"
-                android:drawablePadding="@dimen/_8sdp"
-                android:text="@string/recovery_cases"
-                android:textColor="@color/black"
-                android:layout_gravity="center"
-                android:textSize="18sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/recovery_cases"
-                android:text="10000"
-                android:layout_gravity="center"
-                android:layout_marginHorizontal="@dimen/_6sdp"
-                android:layout_marginBottom="@dimen/_6sdp"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:orientation="vertical">
 
-        </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_6sdp"
+                    android:drawableTop="@drawable/ic_kindness"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:text="@string/total_uninfected"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/recovery_cases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_6sdp"
+                    android:layout_marginBottom="@dimen/_6sdp"
+                    android:text="10000"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
 </RelativeLayout>
