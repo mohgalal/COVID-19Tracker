@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,25 +72,28 @@ public class LanguagesFragment extends Fragment {
         tv_ar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                language = "ar";
-                editor.putString("language", language);
-                editor.apply();
-                setLocale(language,v);
-//                getActivity().finish();
-//                Intent refresh = new Intent(getActivity(),NavigationBottom.class);
-//                startActivity(refresh);
+//                language = "ar";
+//                editor.putString("language", language);
+//                editor.apply();
+//                setLocale(language,v);
+////                getActivity().finish();
+////                Intent refresh = new Intent(getActivity(),NavigationBottom.class);
+////                startActivity(refresh);
+                startActivity(new Intent(Settings.ACTION_LOCALE_SETTINGS));
             }
         });
         tv_En.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                language = "en";
-                editor.putString("language", language);
-                editor.apply();
-                setLocale(language,v);
-//                getActivity().finish();
-//                Intent refresh = new Intent(getActivity(),NavigationBottom.class);
-//                startActivity(refresh);
+//                language = "en";
+//                editor.putString("language", language);
+//                editor.apply();
+//                setLocale(language,v);
+////                getActivity().finish();
+////                Intent refresh = new Intent(getActivity(),NavigationBottom.class);
+////                startActivity(refresh);
+                startActivity(new Intent(Settings.ACTION_LOCALE_SETTINGS));
+
             }
         });
     }

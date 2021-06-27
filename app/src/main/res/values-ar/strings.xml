@@ -157,13 +157,18 @@
     <string name="sat">السبت</string>
     <string name="sun">الاحد</string>
     <string name="mon">الاتنين</string>
-    <string name="wed">الثلاثاء</string>
-    <string name="thu">الاربعاء</string>
-    <string name="tue">الخميس</string>
+    <string name="wed">الاربعاء</string>
+    <string name="thu">الخميس</string>
+    <string name="tue">الثلاثاء</string>
     <string name="fri">الجمعه</string>
     <string name="everyday">كل يوم</string>
     <string name="enter_medicine_name">ادخل اسم الدواء!</string>
     <string name="alarm_has_been_updated_successfully">تم تحديث التنبيه بنجاح!</string>
+    <string name="connection_failed">فشل الاتصال</string>
+    <string name="please_turn_on_mobile_data_or_connect_to_wifi">يرجي تشغيل بيانات الهاتف او الاتصال بشبكة wifi</string>
+    <string name="ok_for_check_internet">موافق</string>
+    <string name="This_application_require_sgps_to_work_properly">يتطلب هذا التطبيق تفعيل GPS للعمل بشكل صحيح,يرجي تفعيله</string>
+    <string name="yes_for_dialog_permission">موافق</string>
 
     <string-array name="number_of_repetition">
         <item>12 ساعة </item>

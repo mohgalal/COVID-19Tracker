@@ -67,7 +67,7 @@ public class NavigationBottom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         sharedPreferences = getSharedPreferences(SSN_FILE_NAME, Context.MODE_PRIVATE);
-        slanguage = sharedPreferences.getString("language","");
+      //  slanguage = sharedPreferences.getString("language","");
         Configuration config = getBaseContext().getResources().getConfiguration();
 
       //  if(!"".equals(slanguage)&&!config.locale.getLanguage().equals(slanguage)){

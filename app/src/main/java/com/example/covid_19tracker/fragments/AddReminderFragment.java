@@ -196,6 +196,12 @@ public class AddReminderFragment extends Fragment {
            // repeatTv.setText(cbMon.getText().toString());
 
         }
+            if (cbTus.isChecked()){
+                stringBuffer.append(getString(R.string.tue)+",");
+                // repeatTv.setText(cbTus.getText().toString());
+
+            }
+
         if (cbWed.isChecked()){
             stringBuffer.append(getString(R.string.wed)+",");
           // repeatTv.setText(cbWed.getText().toString());
@@ -205,11 +211,7 @@ public class AddReminderFragment extends Fragment {
            // repeatTv.setText(cbThu.getText().toString());
 
         }
-        if (cbTus.isChecked()){
-           stringBuffer.append(getString(R.string.tue)+",");
-           // repeatTv.setText(cbTus.getText().toString());
 
-        }
         if (cbFri.isChecked()){
             stringBuffer.append(getString(R.string.fri)+",");
             //repeatTv.setText(cbFri.getText().toString());

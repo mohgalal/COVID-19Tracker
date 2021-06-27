@@ -160,5 +160,10 @@
     <string name="everyday">everyday</string>
     <string name="enter_medicine_name">Enter medicine name !</string>
     <string name="alarm_has_been_updated_successfully">Alarm has been updated successfully!</string>
+    <string name="connection_failed">Connection Failed</string>
+    <string name="please_turn_on_mobile_data_or_connect_to_wifi">please turn on mobile data or connect to Wi-Fi.</string>
+    <string name="ok_for_check_internet">OK</string>
+    <string name="This_application_require_sgps_to_work_properly">This application requires GPS to work properly,please enable it?</string>
+    <string name="yes_for_dialog_permission">Yes</string>
 
 </resources>
