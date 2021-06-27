@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_40sdp"
         android:background="@drawable/button_shape"
-        android:text="Your Status"
+        android:text="@string/your_status"
         android:textColor="#000"
         android:textSize="@dimen/_18sdp"
         app:layout_constraintEnd_toEndOf="@id/profile_image"
@@ -107,7 +107,7 @@
 
         <TextView
             android:id="@+id/good_man_tv"
-            android:text="You are a non-infected person take care :)"
+            android:text="@string/profile_nonInfected"
             android:textSize="@dimen/_14sdp"
             android:textStyle="bold"
             android:textColor="#111"
@@ -147,7 +147,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_50sdp"
-            android:text="Isolation Date:"
+            android:text="@string/isolation_date"
             android:textAllCaps="false"
             android:textColor="#000"
             android:textSize="@dimen/_18sdp"

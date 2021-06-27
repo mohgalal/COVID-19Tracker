@@ -125,10 +125,40 @@
     <string name="advice14">Stay at home when you have any symptoms such as high temperature, coughing or sneezing </string>
     <string name="advice15">You must measure the temperature if you can be in crowded places </string>
     <string name="total_infected">Total Infected  </string>
-    <string name="total_uninfected">Total Uninfected</string>
+    <string name="total_uninfected">Total Non-Infected</string>
     <string-array name="number_of_repetition">
         <item>12 Hours</item>
         <item>8 Hours</item>
         <item>6 Hours</item>
     </string-array>
+    <string name="nav_advice">Advice</string>
+    <string name="nav_alarm">Alarm</string>
+    <string name="nav_map">Map</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_settings">Settings</string>
+    <string name="contact_us_call_one">Call one of the following numbers to get help</string>
+    <string name="select_the_days">Select the days</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="your_status">Your Status</string>
+    <string name="isolation_date">Isolation Date:</string>
+    <string name="infected">Infected</string>
+    <string name="non_infected">Non-Infected</string>
+    <string name="ok">OK</string>
+    <string name="sat">Sat</string>
+    <string name="sun">Sun</string>
+    <string name="mon">Mon</string>
+    <string name="wed">Wed</string>
+    <string name="thu">Thu</string>
+    <string name="tue">Tue</string>
+    <string name="fri">Fri</string>
+    <string name="everyday">everyday</string>
+    <string name="enter_medicine_name">Enter medicine name !</string>
+    <string name="alarm_has_been_updated_successfully">Alarm has been updated successfully!</string>
+
 </resources>

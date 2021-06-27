@@ -43,10 +43,10 @@
             android:value="AIzaSyCfIRFb6A0pFlPNJ1q_-ArmhZxUMTIS05M" />
 
 
-        <activity android:name=".Question"></activity>
-        <activity android:name=".Signup" />
-        <activity android:name=".Login" />
-        <activity android:name=".NavigationBottom"/>
+        <activity android:name=".Question" />
+        <activity android:name=".Signup"  />
+        <activity android:name=".Login"  />
+        <activity android:name=".NavigationBottom" />
         <activity android:name=".Splash">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />

@@ -110,7 +110,7 @@ public class ProfileFragment extends Fragment {
 
         if (infected.equals("1")){
             infectedLout.setVisibility(View.VISIBLE);
-            statusBtn.setText("Infected");
+            statusBtn.setText(R.string.infected);
             statusBtn.setTextColor(Color.RED);
             statusBtn.setEnabled(false);
             int day = calendar.get(Calendar.DAY_OF_YEAR);
@@ -119,7 +119,7 @@ public class ProfileFragment extends Fragment {
             progeressDayTv.setText(currentDay + " days");
         }else if (infected.equals("0")){
             nonInfectedLout.setVisibility(View.VISIBLE);
-            statusBtn.setText("Non-Infected");
+            statusBtn.setText(R.string.non_infected);
             statusBtn.setTextColor(Color.GREEN);
         }
 
@@ -183,19 +183,20 @@ public class ProfileFragment extends Fragment {
             public void onFailure(int statusCode, Throwable error, String content) {
                 super.onFailure(statusCode, error, content);
                 Log.d(TAG, "onFailure: error");
-                Toast.makeText(getContext(), error.getMessage()+content, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), error.getMessage()+content, Toast.LENGTH_SHORT).show();
                 if (statusCode == 404){
                     Toast.makeText(getContext(), "not found", Toast.LENGTH_SHORT).show();
                 }
                 else if (statusCode >=500 && statusCode <= 600){
-                    Toast.makeText(getContext(), "server error", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getContext(), "server error", Toast.LENGTH_SHORT).show();
                 }
                 else if (statusCode == 403){
-                    Toast.makeText(getContext(), "forbidden error", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getContext(), "forbidden error", Toast.LENGTH_SHORT).show();
                 }
 
-                else
-                    Toast.makeText(getContext(), "Unexpected error ", Toast.LENGTH_SHORT).show();
+                else {
+//                    Toast.makeText(getContext(), "Unexpected error ", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

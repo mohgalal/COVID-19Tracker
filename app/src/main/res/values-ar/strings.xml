@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">COVID-19 Tracker</string>
-    <string name="splash_tv_covid_19_tracker">متتبع كوفيد-19</string>
+    <string name="splash_tv_covid_19_tracker">COVID-19 TRACKER</string>
 
     <string name="login_tv_covid_19_tracker">COVID-19 Tracker</string>
     <string name="login_tv_login">سجل الدخول الان</string>
@@ -31,7 +31,7 @@
     <string name="syndrome_answer">Please Answer This Question</string>
     <string name="yes_i_have">نعم اعانى</string>
     <string name="no_i_havent">لا اعانى</string>
-    <string name="the_question">هل تعانى اكثر من عرض من هذه الاعراض :</string>
+    <string name="the_question">هل تعانى من اي عرض من هذه الاعراض :</string>
     <string name="Sign_Up_URL">http://192.168.1.7/ourTeam/sign_up.php</string>
     <string name="Sign_URL">http://192.168.1.7/ourTeam/sign.php</string>
     <string name="Login_Up_URL">http://192.168.1.7/ourTeam/login.php</string>
@@ -110,15 +110,15 @@
     <string name="change_the_language">تغيير اللغة</string>
     <string name="notification">الاشعارات</string>
     <string name="dark_mode">الوضع المظلم</string>
-    <string name="english">English</string>
+    <string name="english">انجليزي</string>
     <string name="arabic">عربى</string>
     <string name="contact_us">الاتصال بنا</string>
     <string name="log_out">تسجيل الخروج</string>
-    <string name="reminder_save">Save</string>
+    <string name="reminder_save">حفظ</string>
     <string name="repeat_weekly">تكرار اسبوعيا</string>
     <string name="profile_state">حالتك</string>
     <string name="profile_isoDate">فترة العزل</string>
-    <string name="profile_nonInfected">انت غير مصاب توخى الحذر </string>
+    <string name="profile_nonInfected">انت غير مصاب توخى الحذر :) </string>
 
     <string name="advice1">يجب ارتداء الكمامه كامله كإحتياط فى المشافى والاماكن المغلقه والمزدحمه</string>
     <string name="advice2">غسل اليدين بعنايه بالماء والصابون أو بالمطهر خاصه بعد الكحه أو العطس أو استخدام الحمام</string>
@@ -137,7 +137,34 @@
     <string name="advice15">يجب ان تقيس درجه الحرارة إذا كنت تتواجد فى اماكن مزدحمه</string>
 
     <string name="total_infected">اجمالي المصابين</string>
-    <string name="recovery_cases">اجمالي المستخدمين</string>
+    <string name="total_uninfected">اجمالي الغير مصابين</string>
+
+    <string name="select_the_days">اختار ايام التكرار</string>
+    <string name="saturday">السبت</string>
+    <string name="sunday">الاحد</string>
+    <string name="monday">الاثنين</string>
+    <string name="tuesday">الثلاثاء</string>
+    <string name="wednesday">الاربعاء</string>
+    <string name="thursday">الخميس</string>
+    <string name="friday">الجمعة</string>
+    <string name="your_status">حالتك</string>
+    <string name="isolation_date">بدايه فترة العزل:</string>
+
+    <string name="infected">مصاب</string>
+    <string name="non_infected">غير مصاب</string>
+
+    <string name="ok">موافق</string>
+    <string name="sat">السبت</string>
+    <string name="sun">الاحد</string>
+    <string name="mon">الاتنين</string>
+    <string name="wed">الثلاثاء</string>
+    <string name="thu">الاربعاء</string>
+    <string name="tue">الخميس</string>
+    <string name="fri">الجمعه</string>
+    <string name="everyday">كل يوم</string>
+    <string name="enter_medicine_name">ادخل اسم الدواء!</string>
+    <string name="alarm_has_been_updated_successfully">تم تحديث التنبيه بنجاح!</string>
+
     <string-array name="number_of_repetition">
         <item>12 ساعة </item>
         <item>8 ساعة</item>

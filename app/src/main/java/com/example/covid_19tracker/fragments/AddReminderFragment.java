@@ -138,7 +138,7 @@ public class AddReminderFragment extends Fragment {
 
                 alart.setView(prompet);
                 alart.setCancelable(false);
-                alart.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                alart.setPositiveButton( getActivity().getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -160,7 +160,7 @@ public class AddReminderFragment extends Fragment {
                 String timeRepeat = selectedNum;
 
                 if (title.isEmpty() || time.equals("Time") || repeat.equals("Repeat Weekly")){
-                    Toast.makeText(requireContext(), "there is an empty field", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireContext(), getActivity().getResources().getString(R.string.enter_medicine_name), Toast.LENGTH_SHORT).show();
                 }else {
 
                     new InsertAsyncTask(AlarmDatabase.getInstance(requireContext())
@@ -178,46 +178,46 @@ public class AddReminderFragment extends Fragment {
         // stringBuffer.append("the days is:");
         if (cbSt.isChecked() && cbSn.isChecked() && cbMon.isChecked() && cbTus.isChecked()
                 && cbWed.isChecked() && cbThu.isChecked() && cbFri.isChecked()){
-            stringBuffer.append("everyday");
+            stringBuffer.append(getString(R.string.everyday));
             repeatTv.setText(stringBuffer.toString());
         }else {
         if (cbSt.isChecked()){
 //
-           stringBuffer.append("Sat"+",");
+           stringBuffer.append(getString(R.string.sat)+",");
             //repeatTv.setText(cbSt.getText().toString());
         }
         if (cbSn.isChecked()){
-            stringBuffer.append("Sun"+",");
+            stringBuffer.append(getString(R.string.sun)+",");
             //repeatTv.setText(cbSn.getText().toString());
 
         }
         if (cbMon.isChecked()){
-            stringBuffer.append("Mon"+",");
+            stringBuffer.append(getString(R.string.mon)+",");
            // repeatTv.setText(cbMon.getText().toString());
 
         }
         if (cbWed.isChecked()){
-            stringBuffer.append("Wed"+",");
+            stringBuffer.append(getString(R.string.wed)+",");
           // repeatTv.setText(cbWed.getText().toString());
         }
         if (cbThu.isChecked()){
-            stringBuffer.append("Thu"+",");
+            stringBuffer.append(getString(R.string.thu)+",");
            // repeatTv.setText(cbThu.getText().toString());
 
         }
         if (cbTus.isChecked()){
-           stringBuffer.append("Tue"+",");
+           stringBuffer.append(getString(R.string.tue)+",");
            // repeatTv.setText(cbTus.getText().toString());
 
         }
         if (cbFri.isChecked()){
-            stringBuffer.append("Fri"+",");
+            stringBuffer.append(getString(R.string.fri)+",");
             //repeatTv.setText(cbFri.getText().toString());
         }
 
         if (!cbSt.isChecked() && !cbSn.isChecked() && !cbMon.isChecked() && !cbTus.isChecked()
                 && !cbWed.isChecked() && !cbThu.isChecked() && !cbFri.isChecked()){
-            stringBuffer.append("everyday");
+            stringBuffer.append(getString(R.string.everyday));
         }
         repeatTv.setText(stringBuffer.toString());
         }

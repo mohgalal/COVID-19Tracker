@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
@@ -26,6 +27,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.covid_19tracker.fragments.LanguagesFragment;
 import com.example.covid_19tracker.services.LocationService;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -36,6 +38,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Locale;
 
 import static com.example.covid_19tracker.Constant.ERROR_DIALOG_REQUEST;
 import static com.example.covid_19tracker.Constant.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION;
@@ -56,22 +60,49 @@ public class NavigationBottom extends AppCompatActivity {
     String ssn;
     SharedPreferences sharedPreferences;
     public boolean mLocationPermissionGranted = false;
+    String slanguage;
+    Intent refresh;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sharedPreferences = getSharedPreferences(SSN_FILE_NAME, Context.MODE_PRIVATE);
+        slanguage = sharedPreferences.getString("language","");
+        Configuration config = getBaseContext().getResources().getConfiguration();
+
+      //  if(!"".equals(slanguage)&&!config.locale.getLanguage().equals(slanguage)){
+        //    recreate();
+            Locale locale = new Locale("en");
+            Locale.setDefault(locale);
+            getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
+      //  }
+
+           //changeLanguage();
+
+
+
         setContentView(R.layout.bottom_navigation);
+
+
+//        if(slanguage.equals("ar")){
+//            finish();
+//            startActivity(getIntent());
+//        }
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         BottomNavigationView bottomNavigation = findViewById(R.id.bar_button_nbtn);
         bottomNavigation.setItemIconTintList(null);
         NavigationUI.setupWithNavController(bottomNavigation, navController);
 
-        sharedPreferences = getSharedPreferences(SSN_FILE_NAME, Context.MODE_PRIVATE);
+
         if (sharedPreferences.contains(SSN_SP_KEY)&&sharedPreferences.contains("infect")){
             ssn=  sharedPreferences.getString(SSN_SP_KEY,"No SSN");
             infected=  sharedPreferences.getString("infect","No SSN");
             // Toast.makeText(this, ssn+"", Toast.LENGTH_SHORT).show();
         }
+
+        // Toast.makeText(this, slanguage, Toast.LENGTH_SHORT).show();
+
 
 
         database = FirebaseDatabase.getInstance();
@@ -132,6 +163,8 @@ public class NavigationBottom extends AppCompatActivity {
 //        FragmentTransaction ft = fm.beginTransaction();
 //        ft.replace(R.id.profileFragment, fragment);
 //        ft.commit();
+
+
 
     }
 
@@ -328,5 +361,30 @@ private boolean isLocationServiceRunning() {
 //
 //            }
 //        }
+//    }
+
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        if(slanguage.equals("ar")){
+//            recreate();
+//        }
+//    }
+    public void changeLanguage(){
+
+// i use this for solving language problem of item in navigation bottom and for saving state of language
+        Locale locale;
+        locale = new Locale(slanguage);
+        Locale.setDefault(locale);
+        Configuration config = getBaseContext().getResources().getConfiguration();
+        config.locale = locale;
+        getResources().updateConfiguration(config,getResources().getDisplayMetrics());
+    }
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        setContentView(R.layout.bottom_navigation);
 //    }
 }
