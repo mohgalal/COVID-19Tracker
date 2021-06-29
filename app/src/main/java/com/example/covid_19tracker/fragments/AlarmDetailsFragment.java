@@ -213,7 +213,7 @@ public class AlarmDetailsFragment extends Fragment {
                     updatedAlarm.setRepeat(repeat);
                     updatedAlarm.setTimeRepeat(timeRepeat);
                     new UpdateAsyncTask(AlarmDatabase.getInstance(requireContext()).alarmDAO()).execute(updatedAlarm);
-                    setAlarm(title,time);
+                    //setAlarm(title,time);
                     Toast.makeText(requireContext(), "Alarm has been updated successfully!", Toast.LENGTH_LONG).show();
 
                     Navigation.findNavController(v).navigate(R.id.action_alarmDetailsFragment_to_alarmFragment);

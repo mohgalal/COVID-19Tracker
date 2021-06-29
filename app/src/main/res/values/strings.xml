@@ -125,7 +125,7 @@
     <string name="advice14">Stay at home when you have any symptoms such as high temperature, coughing or sneezing </string>
     <string name="advice15">You must measure the temperature if you can be in crowded places </string>
     <string name="total_infected">Total Infected  </string>
-    <string name="total_uninfected">Total Uninfected</string>
+    <string name="total_uninfected">Total Non-infected</string>
     <string-array name="number_of_repetition">
         <item>12 Hours</item>
         <item>8 Hours</item>

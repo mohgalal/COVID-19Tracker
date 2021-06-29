@@ -22,34 +22,40 @@ public class AlarmReceiver extends BroadcastReceiver {
        // Toast.makeText(context, "Please open the GPS for COVID-19Tracker", Toast.LENGTH_LONG).show();
         Bundle bundle = intent.getExtras();
         String text = bundle.getString("text");
-        String date = bundle.getString("time");
+        String time = bundle.getString("time");
 
         //Click on Notification
 
         Intent intent1 = new Intent(context, NavigationBottom.class);
         intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         //Notification Builder
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent1, PendingIntent.FLAG_ONE_SHOT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent1, PendingIntent.FLAG_ONE_SHOT);
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, "notify_001");
+        mBuilder.setContentTitle("Take Your Pill")
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(text))
+                .setContentText(text)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setSmallIcon(R.drawable.logo)
+                .addAction(R.drawable.logo,"Replay",pendingIntent);
+        //Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
 
-        Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
-
-        RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_layout);
-        contentView.setImageViewResource(R.id.image, R.mipmap.ic_launcher);
-        PendingIntent pendingSwitchIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
-        contentView.setOnClickPendingIntent(R.id.flashButton, pendingSwitchIntent);
-        contentView.setTextViewText(R.id.message, text);
-        contentView.setTextViewText(R.id.date, date);
-        mBuilder.setSmallIcon(R.drawable.logo);
-        mBuilder.setAutoCancel(true);
-        mBuilder.setOngoing(true);
-        mBuilder.setPriority(Notification.PRIORITY_HIGH);
-        mBuilder.setOnlyAlertOnce(true);
-        mBuilder.setSound(alarmSound);
-        mBuilder.build().flags = Notification.FLAG_NO_CLEAR | Notification.PRIORITY_HIGH;
-        mBuilder.setContent(contentView);
-        mBuilder.setContentIntent(pendingIntent);
+//        RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_layout);
+//        contentView.setImageViewResource(R.id.image, R.mipmap.ic_launcher);
+//        PendingIntent pendingSwitchIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+//        contentView.setOnClickPendingIntent(R.id.flashButton, pendingSwitchIntent);
+//        contentView.setTextViewText(R.id.message, text);
+//        contentView.setTextViewText(R.id.date, date);
+//        mBuilder.setSmallIcon(R.drawable.logo);
+//        mBuilder.setAutoCancel(true);
+//        mBuilder.setOngoing(true);
+//        mBuilder.setPriority(Notification.PRIORITY_HIGH);
+//        mBuilder.setOnlyAlertOnce(true);
+//        mBuilder.setSound(alarmSound);
+//        mBuilder.build().flags = Notification.FLAG_NO_CLEAR | Notification.PRIORITY_HIGH;
+//        mBuilder.setContent(contentView);
+//        mBuilder.setContentIntent(pendingIntent);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             String channelId = "channel_id";

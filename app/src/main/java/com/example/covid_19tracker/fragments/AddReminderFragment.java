@@ -3,9 +3,11 @@ package com.example.covid_19tracker.fragments;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +42,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
+
+import static android.content.Context.ALARM_SERVICE;
 
 
 public class AddReminderFragment extends Fragment {
@@ -114,7 +118,6 @@ public class AddReminderFragment extends Fragment {
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
                         timeTonotify = i + ":" + i1;
                         tvTime.setText(FormatTime(i, i1));
-
                     }
                 }, hour, minute, false);
                 timePickerDialog.show();
@@ -166,8 +169,9 @@ public class AddReminderFragment extends Fragment {
                     new InsertAsyncTask(AlarmDatabase.getInstance(requireContext())
                             .alarmDAO()).execute(new AlarmModel(title, time, repeat, timeRepeat));
                     setAlarm(title,time);
-                    Navigation.findNavController(v).navigate(R.id.action_addReminderFragment2_to_alarmFragment);
+                   Navigation.findNavController(v).navigate(R.id.action_addReminderFragment2_to_alarmFragment);
                 }
+
                 }
         });
 
@@ -258,52 +262,17 @@ public class AddReminderFragment extends Fragment {
         intent.putExtra("text", text);
         intent.putExtra("time", time);
 
-        Calendar calAlarm = Calendar.getInstance();
-        Calendar calNow = Calendar.getInstance();
-
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
-        String dateandtime = timeTonotify;
+        String theTime = timeTonotify;
         DateFormat formatter = new SimpleDateFormat("hh:mm");
         try {
-            Date date1 = formatter.parse(dateandtime);
+            Date date1 = formatter.parse(theTime);
             am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
-
-            calAlarm.setTime(date1);
-            calNow.setTime(date1);
-
-            calAlarm.set(Calendar.HOUR_OF_DAY,hour);
-            calAlarm.set(Calendar.MINUTE,minute);
-            calAlarm.set(Calendar.SECOND,0);
-
-            if (calAlarm.before(calNow)){
-
-                calAlarm.add(Calendar.DATE,1);
-            }
 
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-    }
 
-//    private void setAlarm(String text, String time) {
-//        AlarmManager am = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-//
-//        Intent intent = new Intent(getContext(), AlarmReceiver.class);
-//        intent.putExtra("text", text);
-//        intent.putExtra("time", time);
-//
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
-//        String theTime = timeTonotify;
-//        DateFormat formatter = new SimpleDateFormat("hh:mm");
-//        try {
-//            Date date1 = formatter.parse(theTime);
-//            am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
-//
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//    }
+    }
 }
