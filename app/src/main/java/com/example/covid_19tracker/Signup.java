@@ -91,7 +91,7 @@ public class Signup extends AppCompatActivity {
             public void onClick(View v) {
 
 //                Toast.makeText(Signup.this, "moooo", Toast.LENGTH_LONG).show();
-                //signUp(v);
+             //   signUp(v);
                 name = et_name.getText().toString();
                 SSN1 = et_ssn.getText().toString().trim();
                 phone1 = et_phone.getText().toString().trim();

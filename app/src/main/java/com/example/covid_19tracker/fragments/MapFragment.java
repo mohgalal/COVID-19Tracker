@@ -358,7 +358,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 //                            }
 
                             mMap.addMarker(new MarkerOptions().position(latLng)).setTitle(ssn + "");
-                            //        Toast.makeText(getActivity(), "updated "+i+" : "+lat+" , "+lng, Toast.LENGTH_LONG).show();
+                               //     Toast.makeText(getActivity(), "ssn "+ssn+"  -  "+"updated "+i+" : "+lat+" , "+lng, Toast.LENGTH_LONG).show();
 
                         }
                     }
@@ -422,10 +422,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     }
     public void dialogForInternet(){
         AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-        alertDialog.setTitle("Connection Failed");
-        alertDialog.setMessage("please turn on mobile data or connect to Wi-Fi.");
+        alertDialog.setTitle(getString(R.string.connection_failed));
+        alertDialog.setMessage(getString(R.string.please_turn_on_mobile_data_or_connect_to_wifi));
         alertDialog.setCancelable(false);
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, getString(R.string.ok_for_check_internet), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
@@ -461,9 +461,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     //3
     public void buildAlertMessageNoGps() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("This application requires GPS to work properly,please enable it?")
+        builder.setMessage(getString(R.string.This_application_require_sgps_to_work_properly))
                 .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.yes_for_dialog_permission, new DialogInterface.OnClickListener() {
                     public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
                         //if user press yes go to setting activity for enable gps
                         Intent enableGpsIntent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);

@@ -44,10 +44,10 @@
             android:value="AIzaSyCfIRFb6A0pFlPNJ1q_-ArmhZxUMTIS05M" />
 
 
-        <activity android:name=".Question"></activity>
-        <activity android:name=".Signup" />
-        <activity android:name=".Login" />
-        <activity android:name=".NavigationBottom"/>
+        <activity android:name=".Question" />
+        <activity android:name=".Signup"  />
+        <activity android:name=".Login"  />
+        <activity android:name=".NavigationBottom" />
         <activity android:name=".Splash">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -59,7 +59,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
         <service android:name=".services.LocationService"
-        android:stopWithTask="true"
+        android:stopWithTask="false"
             >
         </service>
 

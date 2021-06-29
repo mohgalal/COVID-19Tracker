@@ -24,10 +24,10 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
     <ImageView
         android:id="@+id/back_emergency_iv"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/_12sdp"
-        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
         android:src="@drawable/ic_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_7sdp"
         android:layout_marginTop="@dimen/_15sdp"
-        android:text="Call one of the following numbers to get help :"
+        android:text="@string/contact_us_call_one"
         android:textColor="#000"
         android:textSize="@dimen/_20sdp"
         app:layout_constraintEnd_toEndOf="@id/emergency_iv"

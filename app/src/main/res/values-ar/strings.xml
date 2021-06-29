@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">COVID-19 Tracker</string>
+    <string name="splash_tv_covid_19_tracker">COVID-19 TRACKER</string>
+
+    <string name="login_tv_covid_19_tracker">COVID-19 Tracker</string>
+    <string name="login_tv_login">سجل الدخول الان</string>
+    <string name="login_et_email_hint">الرقم القومى</string>
+    <string name="login_et_password_hint">Password</string>
+    <string name="login_chb_stay_signed_in">ابقى مسجلا للدخول</string>
+    <string name="login_tv_forget_password">Forget Password?</string>
+    <string name="login_btn_login">تسجيل الدخول</string>
+    <string name="login_btn_sign_up">حساب جديد</string>
+    <string name="signup_tv_register_now">اشترك الان</string>
+    <string name="signup_et_hint_full_name">الاسم بالكامل</string>
+    <string name="signup_et_hint_ssn">رقم الهاتف</string>
+    <string name="signup_et_hint_email">الرقم القومى</string>
+    <string name="signup_et_hint_password">Password</string>
+    <string name="signup_btn_register">سجل</string>
+    <string name="syndrome1">الاعراض الاقل شيوعا:</string>
+    <string name="syndrome2">الاعراض الاكثر شيوعا:</string>
+    <string name="syndrome3">الاعراض الخطيرة:</string>
+    <string name="syndrome_description1"> ألم وأوجاع.التهاب الحلق،الإسهال،التهاب الملتحمة،الصداع،فقدان التذوق،الشم،أو الطفح الجلدى </string>
+    <string name="syndrome_description2">الحمى والسعال الجاف والتعب الشديد.</string>
+    <string name="custome_advice_txt_advice_description">description</string>
+
+    <string name="syndrome_description3">
+       صعوبة او ضيق التنفس ،ألم أو ضغط فى الصدر ، فقدان الكلام أو الحركة </string>
+
+
+    <string name="syndrome_answer">Please Answer This Question</string>
+    <string name="yes_i_have">نعم اعانى</string>
+    <string name="no_i_havent">لا اعانى</string>
+    <string name="the_question">هل تعانى من اي عرض من هذه الاعراض :</string>
+    <string name="Sign_Up_URL">http://192.168.1.7/ourTeam/sign_up.php</string>
+    <string name="Sign_URL">http://192.168.1.7/ourTeam/sign.php</string>
+    <string name="Login_Up_URL">http://192.168.1.7/ourTeam/login.php</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+
+<!--    <string name="">النصائح</string>-->
+<!--    <string name="title_fragment_alarm">المنبه</string>-->
+<!--    <string name="title_fragment_map">الخريطه</string>-->
+<!--    <string name="title_fragment_profile">الشخصيه</string>-->
+<!--    <string name="title_fragment_settings">الاعدادات</string>-->
+    <string name="nav_advice">النصائح</string>
+    <string name="nav_alarm">المنبه</string>
+    <string name="nav_map">الخريطه</string>
+    <string name="nav_profile">الشخصيه</string>
+    <string name="nav_settings">الاعدادات</string>
+    <string name="contact_us_call_one">اتصل باحد الارقام التالية للحصول على المساعدة: </string>
+
+    <string name="time_repeat_sp">التاريخ</string>
+    <string name="reminder_update">تعديل</string>
+
+    <string name="tv_medicine_name">Medicine Name</string>
+    <string name="et_enter_medicine">اكتب اسم الدواء</string>
+    <string name="add_reminder_tv_reminder">Reminder</string>
+    <string name="add_reminder_tv_date">التاريخ</string>
+    <string name="add_reminder_tv_time">الوقت</string>
+    <string name="add_reminder_tv_repetition">Repetition</string>
+    <string name="add_reminder_et_repetition_interval">Enter Repetition Interval</string>
+    <string name="add_reminder_tv_type_of_repetition">نوع التكرار</string>
+    <string name="toolbar_name_new_medicine">New Medicine</string>
+
+    <!--    alarm -->
+    <string name="activity_main_tv_large">Click on the button below to begin creating your reminder!</string>
+    <string name="title_activity_add_reminder">Add Reminder</string>
+    <string name="title_activity_edit_reminder">Edit Reminder</string>
+    <string name="title_activity_licenses">Licenses</string>
+
+    <string name="add_reminder">Reminder</string>
+    <string name="details">Details</string>
+    <string name="date">التاريخ</string>
+    <string name="time">الوقت</string>
+    <string name="repeat">تكرار</string>
+    <string name="repeat_off">مغلق</string>
+    <string name="repeat_no">Repetition Interval </string>
+    <string name="repeat_type">Type of Repetitions</string>
+
+    <string name="action_discard_reminder">Discard Reminder</string>
+    <string name="action_save_reminder">Save Reminder</string>
+
+    <string name="editor_activity_title_new_reminder">Add Reminder Details</string>
+    <string name="editor_activity_title_edit_reminder">Edit Reminder</string>
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+    <string name="discard">Discard</string>
+
+    <string name="keep_editing">حفظ التعديل</string>
+    <string name="delete_dialog_msg">حذف هذا المنبه؟</string>
+
+    <string name="delete">حذف</string>
+
+    <string name="cancel">إلغاء</string>
+    <string name="editor_delete_reminder_successful">حذف المنبه</string>
+
+    <string name="editor_delete_reminder_failed">خطأ فى حذف المنبه</string>
+
+    <string name="editor_insert_reminder_successful">تم الحفظ</string>
+
+    <string name="editor_insert_reminder_failed">خطأ فى حذف المنبه</string>
+
+    <string name="editor_update_reminder_successful">تم التعديل</string>
+
+    <string name="editor_update_reminder_failed">خطأ فى التعديل</string>
+
+    <string name="reminder_title">AlarmReminder</string>
+    <string name="contacts">جهة اتصال للطوارئ</string>
+    <string name="change_the_language">تغيير اللغة</string>
+    <string name="notification">الاشعارات</string>
+    <string name="dark_mode">الوضع المظلم</string>
+    <string name="english">انجليزي</string>
+    <string name="arabic">عربى</string>
+    <string name="contact_us">الاتصال بنا</string>
+    <string name="log_out">تسجيل الخروج</string>
+    <string name="reminder_save">حفظ</string>
+    <string name="repeat_weekly">تكرار اسبوعيا</string>
+    <string name="profile_state">حالتك</string>
+    <string name="profile_isoDate">فترة العزل</string>
+    <string name="profile_nonInfected">انت غير مصاب توخى الحذر :) </string>
+
+    <string name="advice1">يجب ارتداء الكمامه كامله كإحتياط فى المشافى والاماكن المغلقه والمزدحمه</string>
+    <string name="advice2">غسل اليدين بعنايه بالماء والصابون أو بالمطهر خاصه بعد الكحه أو العطس أو استخدام الحمام</string>
+    <string name="advice3">تجنب الاختلاط بالاشخاص الذين لديهم اعراض فى الجهاز التنفسى وحافظ على مسافه 1 متر على ااقل بينك وبين اي شخص لديه هذه الاعراض </string>
+    <string name="advice4">لا تأكل اى منتجات حيوانيه غير مطهيه واحترس ان تخلطها مع اى نكهات اخرى</string>
+    <string name="advice5">لا تشرب قهوة أو اى سوائل اخرى من كأس يشرب منه الاخرين</string>
+    <string name="advice6">تجنب لمس العين والأف والفم دون غسل اليدين</string>
+    <string name="advice7">تنظيف الاسطح بإستمرار وتعقيمهم للمحافظه على النظافه العامه</string>
+    <string name="advice8">تغطيه الفم بمنديل عند العطس أو الكحه أو ثنى الكوع والتخلص من المنديل فى صندوق القمامه وغسل اليدين بعدها مباشرة</string>
+    <string name="advice9"> .تجنب الأختلاط بالحيوانات سواء كانت حيه أو ميته وتجنب الاختلاط او الاقتراب من هذه الحيوانات</string>
+    <string name="advice10">يجب شرب الكثير من المياه باستمرار للمحافظه على رطوبة الحلق</string>
+    <string name="advice11">التدخين ضار جدا بالصحه والشيشه عباره عن بؤرة فيروسات كثيره مركزه انت تحصدها خاصه فى الاماكن العامة</string>
+    <string name="advice12">امتنع عن القبلات والسلام يكون بالمصافحه باليدين فقط</string>
+    <string name="advice13">تجنب البصق على الارض</string>
+    <string name="advice14">ابق فى المنزل إذا كنت تعانى من اى اعراض كإرتفاع الحراره أو الكحه أو العطس</string>
+    <string name="advice15">يجب ان تقيس درجه الحرارة إذا كنت تتواجد فى اماكن مزدحمه</string>
+
+    <string name="total_infected">اجمالي المصابين</string>
+    <string name="total_uninfected">اجمالي الغير مصابين</string>
+
+    <string name="select_the_days">اختار ايام التكرار</string>
+    <string name="saturday">السبت</string>
+    <string name="sunday">الاحد</string>
+    <string name="monday">الاثنين</string>
+    <string name="tuesday">الثلاثاء</string>
+    <string name="wednesday">الاربعاء</string>
+    <string name="thursday">الخميس</string>
+    <string name="friday">الجمعة</string>
+    <string name="your_status">حالتك</string>
+    <string name="isolation_date">بدايه فترة العزل:</string>
+
+    <string name="infected">مصاب</string>
+    <string name="non_infected">غير مصاب</string>
+
+    <string name="ok">موافق</string>
+    <string name="sat">السبت</string>
+    <string name="sun">الاحد</string>
+    <string name="mon">الاتنين</string>
+    <string name="wed">الاربعاء</string>
+    <string name="thu">الخميس</string>
+    <string name="tue">الثلاثاء</string>
+    <string name="fri">الجمعه</string>
+    <string name="everyday">كل يوم</string>
+    <string name="enter_medicine_name">ادخل اسم الدواء!</string>
+    <string name="alarm_has_been_updated_successfully">تم تحديث التنبيه بنجاح!</string>
+    <string name="connection_failed">فشل الاتصال</string>
+    <string name="please_turn_on_mobile_data_or_connect_to_wifi">يرجي تشغيل بيانات الهاتف او الاتصال بشبكة wifi</string>
+    <string name="ok_for_check_internet">موافق</string>
+    <string name="This_application_require_sgps_to_work_properly">يتطلب هذا التطبيق تفعيل GPS للعمل بشكل صحيح,يرجي تفعيله</string>
+    <string name="yes_for_dialog_permission">موافق</string>
+
+    <string-array name="number_of_repetition">
+        <item>12 ساعة </item>
+        <item>8 ساعة</item>
+        <item>6 ساعات</item>
+
+    </string-array>
+</resources>

@@ -20,6 +20,7 @@
 
 
 
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bar_button_nbtn"
             android:layout_width="match_parent"

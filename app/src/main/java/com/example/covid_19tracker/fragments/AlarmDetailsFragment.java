@@ -124,7 +124,7 @@ public class AlarmDetailsFragment extends Fragment {
                 cbFri = prompet.findViewById(R.id.friday_cb);
                 alart.setView(prompet);
                 alart.setCancelable(false);
-                alart.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                alart.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -147,46 +147,47 @@ public class AlarmDetailsFragment extends Fragment {
         // stringBuffer.append("the days is:");
         if (cbSt.isChecked() && cbSn.isChecked() && cbMon.isChecked() && cbTus.isChecked()
                 && cbWed.isChecked() && cbThu.isChecked() && cbFri.isChecked()){
-            stringBuffer.append("everyday");
+            stringBuffer.append(getString(R.string.everyday));
             repeatTv.setText(stringBuffer.toString());
         }else {
             if (cbSt.isChecked()){
 //
-                stringBuffer.append("Sat"+",");
+                stringBuffer.append(getString(R.string.sat)+",");
                 //repeatTv.setText(cbSt.getText().toString());
             }
             if (cbSn.isChecked()){
-                stringBuffer.append("Sun"+",");
+                stringBuffer.append(getString(R.string.sun)+",");
                 //repeatTv.setText(cbSn.getText().toString());
 
             }
             if (cbMon.isChecked()){
-                stringBuffer.append("Mon"+",");
+                stringBuffer.append(getString(R.string.mon)+",");
                 // repeatTv.setText(cbMon.getText().toString());
 
             }
-            if (cbWed.isChecked()){
-                stringBuffer.append("Wed"+",");
-                // repeatTv.setText(cbWed.getText().toString());
-            }
-            if (cbThu.isChecked()){
-                stringBuffer.append("Thu"+",");
-                // repeatTv.setText(cbThu.getText().toString());
-
-            }
             if (cbTus.isChecked()){
-                stringBuffer.append("Tue"+",");
+                stringBuffer.append(getString(R.string.tue)+",");
                 // repeatTv.setText(cbTus.getText().toString());
 
             }
+            if (cbWed.isChecked()){
+                stringBuffer.append(getString(R.string.wed)+",");
+                // repeatTv.setText(cbWed.getText().toString());
+            }
+            if (cbThu.isChecked()){
+                stringBuffer.append(getString(R.string.thu)+",");
+                // repeatTv.setText(cbThu.getText().toString());
+
+            }
+
             if (cbFri.isChecked()){
-                stringBuffer.append("Fri"+",");
+                stringBuffer.append(getString(R.string.fri)+",");
                 //repeatTv.setText(cbFri.getText().toString());
             }
 
             if (!cbSt.isChecked() && !cbSn.isChecked() && !cbMon.isChecked() && !cbTus.isChecked()
                     && !cbWed.isChecked() && !cbThu.isChecked() && !cbFri.isChecked()){
-                stringBuffer.append("everyday");
+                stringBuffer.append(getString(R.string.everyday));
             }
             repeatTv.setText(stringBuffer.toString());
         }
@@ -204,7 +205,7 @@ public class AlarmDetailsFragment extends Fragment {
                 String timeRepeat = selectedNum;
                 if(title.isEmpty() || time.isEmpty()){
 
-                    Toast.makeText(requireContext(), "There is an empty field!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireContext(), getActivity().getResources().getString(R.string.enter_medicine_name), Toast.LENGTH_SHORT).show();
 
                 } else {
 
@@ -213,8 +214,8 @@ public class AlarmDetailsFragment extends Fragment {
                     updatedAlarm.setRepeat(repeat);
                     updatedAlarm.setTimeRepeat(timeRepeat);
                     new UpdateAsyncTask(AlarmDatabase.getInstance(requireContext()).alarmDAO()).execute(updatedAlarm);
-                    //setAlarm(title,time);
-                    Toast.makeText(requireContext(), "Alarm has been updated successfully!", Toast.LENGTH_LONG).show();
+                    setAlarm(title,time);
+                    Toast.makeText(requireContext(),getActivity().getResources().getString( R.string.alarm_has_been_updated_successfully), Toast.LENGTH_LONG).show();
 
                     Navigation.findNavController(v).navigate(R.id.action_alarmDetailsFragment_to_alarmFragment);
                 }
