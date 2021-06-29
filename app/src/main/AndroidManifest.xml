@@ -58,7 +58,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
         <service android:name=".services.LocationService"
-        android:stopWithTask="true"
+        android:stopWithTask="false"
             >
         </service>
 

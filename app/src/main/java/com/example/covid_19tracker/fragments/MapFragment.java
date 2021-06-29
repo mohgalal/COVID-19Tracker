@@ -358,7 +358,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 //                            }
 
                             mMap.addMarker(new MarkerOptions().position(latLng)).setTitle(ssn + "");
-                            //        Toast.makeText(getActivity(), "updated "+i+" : "+lat+" , "+lng, Toast.LENGTH_LONG).show();
+                               //     Toast.makeText(getActivity(), "ssn "+ssn+"  -  "+"updated "+i+" : "+lat+" , "+lng, Toast.LENGTH_LONG).show();
 
                         }
                     }
