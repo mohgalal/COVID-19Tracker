@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
         android:layout_marginLeft="@dimen/_4sdp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:background="@drawable/backgronund_color"
         android:outlineAmbientShadowColor="#111"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,42 +99,42 @@
         app:layout_constraintStart_toStartOf="@id/emergency_tv"
         app:layout_constraintTop_toBottomOf="@id/view_sittings1" />
 
-    <View
-        android:id="@+id/view_sittings2"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
-        android:layout_marginLeft="@dimen/_4sdp"
-        android:layout_marginTop="@dimen/_7sdp"
-        android:background="@drawable/backgronund_color"
-        android:outlineAmbientShadowColor="#111"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/change_language_tv" />
+<!--    <View-->
+<!--        android:id="@+id/view_sittings2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/_1sdp"-->
+<!--        android:layout_marginLeft="@dimen/_4sdp"-->
+<!--        android:layout_marginTop="@dimen/_7sdp"-->
+<!--        android:background="@drawable/backgronund_color"-->
+<!--        android:outlineAmbientShadowColor="#111"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/change_language_tv" />-->
 
-    <TextView
-        android:id="@+id/app_notification_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_6sdp"
-        android:drawableStart="@drawable/ic_notification"
-        android:drawablePadding="10dp"
-        android:paddingStart="@dimen/_5sdp"
-        android:text="@string/notification"
-        android:textColor="#000"
-        android:textSize="@dimen/_18sdp"
-        app:layout_constraintEnd_toEndOf="@id/emergency_tv"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/emergency_tv"
-        app:layout_constraintTop_toBottomOf="@id/view_sittings2" />
+<!--    <TextView-->
+<!--        android:id="@+id/app_notification_tv"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/_6sdp"-->
+<!--        android:drawableStart="@drawable/ic_notification"-->
+<!--        android:drawablePadding="10dp"-->
+<!--        android:paddingStart="@dimen/_5sdp"-->
+<!--        android:text="@string/notification"-->
+<!--        android:textColor="#000"-->
+<!--        android:textSize="@dimen/_18sdp"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/emergency_tv"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="@id/emergency_tv"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/view_sittings2" />-->
 
-    <Switch
-        android:id="@+id/notification_sw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_20sdp"
-        app:layout_constraintBottom_toBottomOf="@id/app_notification_tv"
-        app:layout_constraintEnd_toEndOf="@id/app_notification_tv"
-        app:layout_constraintTop_toTopOf="@id/app_notification_tv"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+<!--    <Switch-->
+<!--        android:id="@+id/notification_sw"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="@dimen/_20sdp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/app_notification_tv"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/app_notification_tv"-->
+<!--        app:layout_constraintTop_toTopOf="@id/app_notification_tv"-->
+<!--        tools:ignore="UseSwitchCompatOrMaterialXml" />-->
 
     <View
         android:id="@+id/view_sittings3"
@@ -145,7 +145,7 @@
         android:background="@drawable/backgronund_color"
         android:outlineAmbientShadowColor="#111"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/notification_sw" />
+        app:layout_constraintTop_toBottomOf="@id/change_language_tv" />
 
     <TextView
         android:id="@+id/dark_mode_tv"

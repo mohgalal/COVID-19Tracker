@@ -39,6 +39,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import static android.content.Context.ALARM_SERVICE;
+
 public class AlarmDetailsFragment extends Fragment {
 
     CheckBox cbSt, cbSn, cbMon, cbWed, cbThu, cbTus, cbFri;
@@ -48,6 +50,7 @@ public class AlarmDetailsFragment extends Fragment {
     TextInputEditText titleEt;
     MaterialButton updateBtn;
     Spinner timeRepeatSp;
+    int hour, minute;
     LinearLayout repeatWeeklyLt;
 
     @Override
@@ -94,12 +97,14 @@ public class AlarmDetailsFragment extends Fragment {
         tvTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar calendar = Calendar.getInstance();
-                int hour = calendar.get(Calendar.HOUR_OF_DAY);
-                int minute = calendar.get(Calendar.MINUTE);
+
+
                 TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                        timePicker.clearFocus();
+                        hour = timePicker.getCurrentHour();
+                        minute = timePicker.getCurrentMinute();
                         timeTonotify = i + ":" + i1;
                         tvTime.setText(FormatTime(i, i1));
                     }
@@ -214,7 +219,7 @@ public class AlarmDetailsFragment extends Fragment {
                     updatedAlarm.setRepeat(repeat);
                     updatedAlarm.setTimeRepeat(timeRepeat);
                     new UpdateAsyncTask(AlarmDatabase.getInstance(requireContext()).alarmDAO()).execute(updatedAlarm);
-                    setAlarm(title,time);
+                    newAlarm(title,timeTonotify);
                     Toast.makeText(requireContext(),getActivity().getResources().getString( R.string.alarm_has_been_updated_successfully), Toast.LENGTH_LONG).show();
 
                     Navigation.findNavController(v).navigate(R.id.action_alarmDetailsFragment_to_alarmFragment);
@@ -264,6 +269,27 @@ public class AlarmDetailsFragment extends Fragment {
 
 
         return time;
+    }
+    private void newAlarm(String text,String time){
+
+        Intent intent = new Intent(getContext(), AlarmReceiver.class);
+        intent.putExtra("text", text);
+        intent.putExtra("time", time);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY,hour);
+        calendar.set(Calendar.MINUTE,minute);
+        calendar.set(Calendar.SECOND,0);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
+
+        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
+
+        // alarmManager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),PendingIntent.getBroadcast(getActivity(),0,alertIntent,PendingIntent.FLAG_UPDATE_CURRENT));
+
+
+
     }
 
     private void setAlarm(String text, String time) {

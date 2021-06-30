@@ -127,6 +127,7 @@
     <string name="total_infected">Total Infected  </string>
     <string name="total_uninfected">Total Non-Infected</string>
     <string-array name="number_of_repetition">
+        <item>24 Hours</item>
         <item>12 Hours</item>
         <item>8 Hours</item>
         <item>6 Hours</item>

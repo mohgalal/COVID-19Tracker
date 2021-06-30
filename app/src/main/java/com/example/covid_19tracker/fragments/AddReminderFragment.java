@@ -56,10 +56,10 @@ public class AddReminderFragment extends Fragment {
     Spinner timeRepeatSp;
     LinearLayout repeatWeeklyLt;
     String title;
+    Calendar calendar = Calendar.getInstance();
     String time;
     int day;
     int hour,minute;
-    Calendar calendar = Calendar.getInstance();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,11 +111,15 @@ public class AddReminderFragment extends Fragment {
             public void onClick(View v) {
 
                 //day = calendar.get(Calendar.DAY_OF_MONTH);
-                 hour = calendar.get(Calendar.HOUR_OF_DAY);
-                 minute = calendar.get(Calendar.MINUTE);
+                hour = calendar.get(Calendar.HOUR_OF_DAY);
+                minute = calendar.get(Calendar.MINUTE);
+
                 TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                        timePicker.clearFocus();
+                        hour = timePicker.getCurrentHour();
+                        minute = timePicker.getCurrentMinute();
                         timeTonotify = i + ":" + i1;
                         tvTime.setText(FormatTime(i, i1));
                     }
@@ -123,6 +127,7 @@ public class AddReminderFragment extends Fragment {
                 timePickerDialog.show();
             }
         });
+
 
         repeatWeeklyLt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,8 +173,11 @@ public class AddReminderFragment extends Fragment {
 
                     new InsertAsyncTask(AlarmDatabase.getInstance(requireContext())
                             .alarmDAO()).execute(new AlarmModel(title, time, repeat, timeRepeat));
-                    setAlarm(title,time);
+                    //setAlarm(title,time);
+                    newAlarm(title,timeTonotify);
+                    Toast.makeText(getContext(), hour+" : "+minute, Toast.LENGTH_SHORT).show();
                    Navigation.findNavController(v).navigate(R.id.action_addReminderFragment2_to_alarmFragment);
+
                 }
 
                 }
@@ -257,24 +265,47 @@ public class AddReminderFragment extends Fragment {
         return time;
     }
 
-    private void setAlarm(String text, String time) {
-        AlarmManager am = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+    private void newAlarm(String text,String time){
 
         Intent intent = new Intent(getContext(), AlarmReceiver.class);
         intent.putExtra("text", text);
         intent.putExtra("time", time);
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
-        String theTime = timeTonotify;
-        DateFormat formatter = new SimpleDateFormat("hh:mm");
-        try {
-            Date date1 = formatter.parse(theTime);
-            am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY,hour);
+        calendar.set(Calendar.MINUTE,minute);
+        calendar.set(Calendar.SECOND,0);
 
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
+
+
+        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
+
+        // alarmManager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),PendingIntent.getBroadcast(getActivity(),0,alertIntent,PendingIntent.FLAG_UPDATE_CURRENT));
+
 
 
     }
+
+//    private void setAlarm(String text, String time) {
+//        AlarmManager am = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+//
+//        Intent intent = new Intent(getContext(), AlarmReceiver.class);
+//        intent.putExtra("text", text);
+//        intent.putExtra("time", time);
+//
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
+//        String theTime = timeTonotify;
+//        DateFormat formatter = new SimpleDateFormat("hh:mm");
+//        try {
+//            Date date1 = formatter.parse(theTime);
+//            am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
+//
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//    }
 }

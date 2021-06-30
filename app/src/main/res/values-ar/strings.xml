@@ -162,7 +162,7 @@
     <string name="tue">الثلاثاء</string>
     <string name="fri">الجمعه</string>
     <string name="everyday">كل يوم</string>
-    <string name="enter_medicine_name">ادخل اسم الدواء!</string>
+    <string name="enter_medicine_name">هناك حقل فارغ!</string>
     <string name="alarm_has_been_updated_successfully">تم تحديث التنبيه بنجاح!</string>
     <string name="connection_failed">فشل الاتصال</string>
     <string name="please_turn_on_mobile_data_or_connect_to_wifi">يرجي تشغيل بيانات الهاتف او الاتصال بشبكة wifi</string>
@@ -171,8 +171,9 @@
     <string name="yes_for_dialog_permission">موافق</string>
 
     <string-array name="number_of_repetition">
+        <item>24 ساعة </item>
         <item>12 ساعة </item>
-        <item>8 ساعة</item>
+         <item>8 ساعات</item>
         <item>6 ساعات</item>
 
     </string-array>

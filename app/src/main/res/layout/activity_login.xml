@@ -9,10 +9,10 @@
 
     <ImageView
         android:id="@+id/covid_login_iv"
-        android:layout_width="@dimen/_85sdp"
+        android:layout_width="@dimen/_95sdp"
         android:layout_height="@dimen/_85sdp"
         android:layout_marginTop="@dimen/_32sdp"
-        android:src="@drawable/logo"
+        android:src="@drawable/logonew"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

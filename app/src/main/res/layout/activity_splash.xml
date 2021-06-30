@@ -10,13 +10,13 @@
 
     <ImageView
         android:id="@+id/splash_iv"
-        android:layout_width="@dimen/_135sdp"
+        android:layout_width="@dimen/_145sdp"
         android:layout_height="@dimen/_135sdp"
         android:layout_marginTop="@dimen/_172sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo"
+        app:srcCompat="@drawable/logonew"
         />
 
     <TextView
