@@ -8,6 +8,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
@@ -24,6 +26,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -60,8 +63,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.TimeZone;
 
 import static com.example.covid_19tracker.Constant.ERROR_DIALOG_REQUEST;
@@ -98,7 +103,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     TextView totalInfected, totalPeople;
     String stotalInfected,stotalPeople;
     SharedPreferences.Editor editor;
-
+    SearchView searchView;
+    LatLng searchLatLng = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -135,6 +141,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         View view = inflater.inflate(R.layout.fragment_map, container, false);
         ivStatisticsInfo = view.findViewById(R.id.iv_statistics_info);
+        searchView =(SearchView) view.findViewById(R.id.sv_location);
 
 
         return view;
@@ -190,7 +197,41 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
             }
         });
+searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        String location  = searchView.getQuery().toString();
+        List<Address> addressList = null;
+        if(location!=null || !location.equals("")) {
+            Geocoder geocoder = new Geocoder(getContext());
+            try {
+                addressList = geocoder.getFromLocationName(location, 1);
 
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                Address address = addressList.get(0);
+                searchLatLng = new LatLng(address.getLatitude(), address.getLongitude());
+                    Toast.makeText(getActivity(), searchLatLng.latitude + "", Toast.LENGTH_SHORT).show();
+                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(searchLatLng, 15f);
+                    mMap.animateCamera(cameraUpdate);
+
+
+            }
+            catch (Exception e){
+                Toast.makeText(getActivity(), "Please enter name of right places ", Toast.LENGTH_LONG).show();
+            }
+                   }
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
+    }
+});
     }
 
 
@@ -257,7 +298,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         getUserLocation();
         // for start services and updated every 4 second and display updated location on map
         startUserLocationRunnable();
-
+// for transport to searched location according search view
+       // CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(searchLatLng, 15f);
+                            //   mMap.animateCamera(cameraUpdate);
     }
 
 
