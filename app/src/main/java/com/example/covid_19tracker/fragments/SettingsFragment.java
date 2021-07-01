@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ import androidx.navigation.Navigation;
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import com.example.covid_19tracker.Login;
+import com.example.covid_19tracker.NavigationBottom;
 import com.example.covid_19tracker.R;
 
 import static com.example.covid_19tracker.Constant.SSN_FILE_NAME;
@@ -71,12 +73,13 @@ public class SettingsFragment extends Fragment {
             avd2.start();
         }
 
-
+        //darkModeSw.setChecked(SaveState.getDarkModeState());
 //        darkModeSw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            @Override
 //            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 //                if (isChecked){
-//
+//                    getActivity().setTheme(R.style.DarkTheme);
+//                    ((NavigationBottom)getActivity()).recreate();
 //                }
 //            }
 //        });

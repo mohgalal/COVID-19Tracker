@@ -89,7 +89,7 @@
         <!--                android:id="@+id/login_text_input2"-->
         <!--                android:layout_marginTop="@dimen/_8sdp"-->
         <!--                android:hint="@string/login_et_password_hint"-->
-        <!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+        <!--                styles="@styles/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
         <!--                app:passwordToggleEnabled="true"-->
         <!--                >-->
         <!--                <com.google.android.material.textfield.TextInputEditText-->

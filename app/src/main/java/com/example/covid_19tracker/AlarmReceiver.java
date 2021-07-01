@@ -44,7 +44,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 //                .setContentIntent(pendingIntent)
 //                .setSmallIcon(R.drawable.logo)
 //                .addAction(R.drawable.logo,"Replay",pendingIntent);
-        Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+        Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
 
         RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_layout);
         contentView.setImageViewResource(R.id.image, R.mipmap.ic_launcher);

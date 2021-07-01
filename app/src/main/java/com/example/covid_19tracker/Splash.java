@@ -1,7 +1,10 @@
 package com.example.covid_19tracker;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,12 +17,14 @@ import android.widget.TextView;
 public class Splash extends AppCompatActivity {
     ImageView iv;
     TextView tv;
+    static Context context;
     Animation top,bottom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         iv=findViewById(R.id.splash_iv);
         tv=findViewById(R.id.splash_tv_name);

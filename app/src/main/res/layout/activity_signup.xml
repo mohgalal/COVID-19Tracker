@@ -97,7 +97,7 @@
         <!--            android:id="@+id/signup_text_input_layout_password"-->
         <!--            android:layout_marginTop="@dimen/_8sdp"-->
         <!--            android:hint="@string/signup_et_hint_password"-->
-        <!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+        <!--            styles="@styles/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
         <!--            app:passwordToggleEnabled="true"-->
         <!--            >-->
         <!--            <com.google.android.material.textfield.TextInputEditText-->
