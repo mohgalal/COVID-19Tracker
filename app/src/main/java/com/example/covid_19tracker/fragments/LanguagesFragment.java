@@ -72,27 +72,27 @@ public class LanguagesFragment extends Fragment {
         tv_ar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                language = "ar";
-//                editor.putString("language", language);
-//                editor.apply();
-//                setLocale(language,v);
+                language = "ar";
+                editor.putString("language", language);
+                editor.apply();
+                setLocale(language,v);
 ////                getActivity().finish();
 ////                Intent refresh = new Intent(getActivity(),NavigationBottom.class);
 ////                startActivity(refresh);
-                startActivity(new Intent(Settings.ACTION_LOCALE_SETTINGS));
+               // startActivity(new Intent(Settings.ACTION_LOCALE_SETTINGS));
             }
         });
         tv_En.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                language = "en";
-//                editor.putString("language", language);
-//                editor.apply();
-//                setLocale(language,v);
+                language = "en";
+                editor.putString("language", language);
+                editor.apply();
+                setLocale(language,v);
 ////                getActivity().finish();
 ////                Intent refresh = new Intent(getActivity(),NavigationBottom.class);
 ////                startActivity(refresh);
-                startActivity(new Intent(Settings.ACTION_LOCALE_SETTINGS));
+             //   startActivity(new Intent(Settings.ACTION_LOCALE_SETTINGS));
 
             }
         });
@@ -104,7 +104,11 @@ public class LanguagesFragment extends Fragment {
         conf.locale = myLocale;
         getActivity().getResources().updateConfiguration(conf,dm);
         //Navigation.findNavController(v).navigate(R.id.languagesFragment);
-        getActivity().recreate();
+        ((NavigationBottom)getActivity()).recreate();
+
+
+
+
 
 //            new Handler().post(new Runnable() {
 //            @Override

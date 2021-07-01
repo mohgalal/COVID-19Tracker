@@ -1,7 +1,6 @@
 package com.example.covid_19tracker;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -22,13 +21,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.covid_19tracker.fragments.LanguagesFragment;
 import com.example.covid_19tracker.services.LocationService;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -52,7 +51,7 @@ public class NavigationBottom extends AppCompatActivity {
 
     private static final String TAG = "NavigationBottom";
     private FusedLocationProviderClient fusedLocationProviderClient;
-    double lat, lng, lat2, lng2;
+    double lat, lng,lat2,lng2;
     FirebaseDatabase database;
     DatabaseReference myRef;
     String infected;
@@ -61,26 +60,33 @@ public class NavigationBottom extends AppCompatActivity {
     String ssn;
     SharedPreferences sharedPreferences;
     public boolean mLocationPermissionGranted = false;
-    String slanguage;
-    Intent refresh;
+    String slanguage ;
+    private Locale mCurrentLocale;
 
+    Intent refresh;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.bottom_navigation);
 
         sharedPreferences = getSharedPreferences(SSN_FILE_NAME, Context.MODE_PRIVATE);
-        //  slanguage = sharedPreferences.getString("language","");
-        Configuration config = getBaseContext().getResources().getConfiguration();
+        slanguage = sharedPreferences.getString("language","en");
+       Configuration config = getBaseContext().getResources().getConfiguration();
+//
+//      //  if(!"".equals(slanguage)&&!config.locale.getLanguage().equals(slanguage)){
+//        //    recreate();
+//            Locale locale = new Locale("en");
+//            Locale.setDefault(locale);
+//            getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
+      //  }
 
-        //  if(!"".equals(slanguage)&&!config.locale.getLanguage().equals(slanguage)){
-        //    recreate();
-        Locale locale = new Locale("en");
-        Locale.setDefault(locale);
-        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-        //  }
+          changeLanguage();
 
-        //changeLanguage();
+
+           // settingLocale(getBaseContext(),slanguage);
+
+
+        setContentView(R.layout.bottom_navigation);
+
 
 //        if(slanguage.equals("ar")){
 //            finish();
@@ -93,13 +99,14 @@ public class NavigationBottom extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNavigation, navController);
 
 
-        if (sharedPreferences.contains(SSN_SP_KEY) && sharedPreferences.contains("infect")) {
-            ssn = sharedPreferences.getString(SSN_SP_KEY, "No SSN");
-            infected = sharedPreferences.getString("infect", "No SSN");
+        if (sharedPreferences.contains(SSN_SP_KEY)&&sharedPreferences.contains("infect")){
+            ssn=  sharedPreferences.getString(SSN_SP_KEY,"No SSN");
+            infected=  sharedPreferences.getString("infect","No SSN");
             // Toast.makeText(this, ssn+"", Toast.LENGTH_SHORT).show();
         }
 
         // Toast.makeText(this, slanguage, Toast.LENGTH_SHORT).show();
+
 
 
         database = FirebaseDatabase.getInstance();
@@ -124,7 +131,7 @@ public class NavigationBottom extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task task) {
                         Location clocation = (Location) task.getResult();
-                        if (clocation != null) {
+                        if(clocation!= null) {
                             lat = clocation.getLatitude();
                             lng = clocation.getLongitude();
                             // Log.d(TAG, "lng "+lat+"   "+ lng);
@@ -144,6 +151,8 @@ public class NavigationBottom extends AppCompatActivity {
         }
 
 
+
+
 //        Intent intent = getIntent();
 //        String ssn = intent.getStringExtra(EXTRA_SSN);
         //Toast.makeText(this, ssn+"", Toast.LENGTH_SHORT).show();
@@ -160,6 +169,7 @@ public class NavigationBottom extends AppCompatActivity {
 //        ft.commit();
 
 
+
     }
 
 
@@ -169,7 +179,8 @@ public class NavigationBottom extends AppCompatActivity {
         if (doubleBackToExitPressed == 2) {
             finishAffinity();
             System.exit(0);
-        } else {
+        }
+        else {
             doubleBackToExitPressed++;
             Toast.makeText(this, "Please press Back again to exit", Toast.LENGTH_SHORT).show();
         }
@@ -181,62 +192,59 @@ public class NavigationBottom extends AppCompatActivity {
 //            }
 //        }, 2000);
     }
-
-    //    public void ToggleTheme(boolean isChecked){
+//    public void ToggleTheme(boolean isChecked){
 //        if (isChecked) {
-//            this.getTheme().applyStyle(R.styles.AppTheme, false);
+//            this.getTheme().applyStyle(R.style.AppTheme, false);
 //        }
 //        else{
-//            this.getTheme().applyStyle(R.styles.AppTheme, true);
+//            this.getTheme().applyStyle(R.style.AppTheme, true);
 //        }
 //    }
-    private void startLocationService() {
-        if (!isLocationServiceRunning()) {
-            Intent serviceIntent = new Intent(this, LocationService.class);
+private void startLocationService(){
+    if(!isLocationServiceRunning()){
+        Intent serviceIntent = new Intent(this, LocationService.class);
 //        this.startService(serviceIntent);
 
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O){
 
-                NavigationBottom.this.startForegroundService(serviceIntent);
-            } else {
-                startService(serviceIntent);
-            }
+            NavigationBottom.this.startForegroundService(serviceIntent);
+        }else{
+            startService(serviceIntent);
         }
     }
-
-    private boolean isLocationServiceRunning() {
-        ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-            if ("com.codingwithmitch.googledirectionstest.services.LocationService".equals(service.service.getClassName())) {
-                Log.d(TAG, "isLocationServiceRunning: location service is already running.");
-                return true;
-            }
+}
+private boolean isLocationServiceRunning() {
+    ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+    for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)){
+        if("com.codingwithmitch.googledirectionstest.services.LocationService".equals(service.service.getClassName())) {
+            Log.d(TAG, "isLocationServiceRunning: location service is already running.");
+            return true;
         }
-        Log.d(TAG, "isLocationServiceRunning: location service is not running.");
-        return false;
     }
-
+    Log.d(TAG, "isLocationServiceRunning: location service is not running.");
+    return false;
+}
     //1
-    public boolean isServicesOK() {
+    public boolean isServicesOK(){
         Log.d(TAG, "isServicesOK: checking google services version");
 
         int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(NavigationBottom.this);
 
-        if (available == ConnectionResult.SUCCESS) {
+        if(available == ConnectionResult.SUCCESS){
             //everything is fine and the user can make map requests
             Log.d(TAG, "isServicesOK: Google Play Services is working");
             return true;
-        } else if (GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
+        }
+        else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)){
             //an error occured but we can resolve it
             Log.d(TAG, "isServicesOK: an error occured but we can fix it");
             Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(NavigationBottom.this, available, ERROR_DIALOG_REQUEST);
             dialog.show();
-        } else {
+        }else{
             Toast.makeText(this, "You can't make map requests", Toast.LENGTH_SHORT).show();
         }
         return false;
     }
-
     //3
     public void buildAlertMessageNoGps() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -254,7 +262,6 @@ public class NavigationBottom extends AppCompatActivity {
         final AlertDialog alert = builder.create();
         alert.show();
     }
-
     //6
     public void getLocationPermission() {
         /*
@@ -297,7 +304,6 @@ public class NavigationBottom extends AppCompatActivity {
             }
         }
     }
-
     //4
     // i use this method after the user accepted or denied the permission
     @Override
@@ -307,13 +313,13 @@ public class NavigationBottom extends AppCompatActivity {
         switch (requestCode) {
             case PERMISSIONS_REQUEST_ENABLE_GPS: {
                 //if the user done accepted the permission use app
-                if (mLocationPermissionGranted) {
+                if(mLocationPermissionGranted){
                     //5
                     // getUserLocation();
 //                    goToNavigationBottomForDisplayMap();
                 }
                 //else go Location Permission for taking the permission
-                else {
+                else{
 
                     getLocationPermission();
                 }
@@ -324,11 +330,11 @@ public class NavigationBottom extends AppCompatActivity {
 
 
     // i use this method to sure if GPS is enabled on the device or not  //2
-    public boolean isMapsEnabled() {
-        final LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+    public boolean isMapsEnabled(){
+        final LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
 
 //if location or gps doesn't enable display alert dialog for enable
-        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+        if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
             buildAlertMessageNoGps();
             return false;
         }
@@ -336,9 +342,9 @@ public class NavigationBottom extends AppCompatActivity {
     }
 
     //8
-    public boolean checkMapServices() {
-        if (isServicesOK()) {
-            if (isMapsEnabled()) {
+    public boolean checkMapServices(){
+        if(isServicesOK()){
+            if(isMapsEnabled()){
                 return true;
             }
         }
@@ -362,14 +368,8 @@ public class NavigationBottom extends AppCompatActivity {
 //    }
 
 
-    //    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        if(slanguage.equals("ar")){
-//            recreate();
-//        }
-//    }
-    public void changeLanguage() {
+
+    public void changeLanguage(){
 
 // i use this for solving language problem of item in navigation bottom and for saving state of language
         Locale locale;
@@ -377,13 +377,30 @@ public class NavigationBottom extends AppCompatActivity {
         Locale.setDefault(locale);
         Configuration config = getBaseContext().getResources().getConfiguration();
         config.locale = locale;
-        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+        config.setLayoutDirection(config.locale);
+        getResources().updateConfiguration(config,getResources().getDisplayMetrics());
     }
 
-    //    @Override
+//    @Override
 //    protected void onResume() {
 //        super.onResume();
 //        setContentView(R.layout.bottom_navigation);
 //    }
+    public void settingLocale(Context context,String language){
+        Locale locale;
+        Configuration config  = new Configuration();
+        if(language.equals("en")) {
+            locale = new Locale("en");
+            Locale.setDefault(locale);
+            config.locale = locale;
+        }
+            else if(language.equals("ar")){
+            locale = new Locale("ar");
+            Locale.setDefault(locale);
+            config.locale = locale;
+            }
+            context.getResources().updateConfiguration(config,null);
+        }
+
 
 }
