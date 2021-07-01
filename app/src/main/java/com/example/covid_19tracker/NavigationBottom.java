@@ -60,25 +60,29 @@ public class NavigationBottom extends AppCompatActivity {
     String ssn;
     SharedPreferences sharedPreferences;
     public boolean mLocationPermissionGranted = false;
-    String slanguage;
+    String slanguage ;
+    private Locale mCurrentLocale;
+
     Intent refresh;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         sharedPreferences = getSharedPreferences(SSN_FILE_NAME, Context.MODE_PRIVATE);
-      //  slanguage = sharedPreferences.getString("language","");
-        Configuration config = getBaseContext().getResources().getConfiguration();
-
-      //  if(!"".equals(slanguage)&&!config.locale.getLanguage().equals(slanguage)){
-        //    recreate();
-            Locale locale = new Locale("en");
-            Locale.setDefault(locale);
-            getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
+        slanguage = sharedPreferences.getString("language","en");
+       Configuration config = getBaseContext().getResources().getConfiguration();
+//
+//      //  if(!"".equals(slanguage)&&!config.locale.getLanguage().equals(slanguage)){
+//        //    recreate();
+//            Locale locale = new Locale("en");
+//            Locale.setDefault(locale);
+//            getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
       //  }
 
-           //changeLanguage();
+          changeLanguage();
 
+
+           // settingLocale(getBaseContext(),slanguage);
 
 
         setContentView(R.layout.bottom_navigation);
@@ -364,13 +368,7 @@ private boolean isLocationServiceRunning() {
 //    }
 
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        if(slanguage.equals("ar")){
-//            recreate();
-//        }
-//    }
+
     public void changeLanguage(){
 
 // i use this for solving language problem of item in navigation bottom and for saving state of language
@@ -379,6 +377,7 @@ private boolean isLocationServiceRunning() {
         Locale.setDefault(locale);
         Configuration config = getBaseContext().getResources().getConfiguration();
         config.locale = locale;
+        config.setLayoutDirection(config.locale);
         getResources().updateConfiguration(config,getResources().getDisplayMetrics());
     }
 
@@ -387,4 +386,21 @@ private boolean isLocationServiceRunning() {
 //        super.onResume();
 //        setContentView(R.layout.bottom_navigation);
 //    }
+    public void settingLocale(Context context,String language){
+        Locale locale;
+        Configuration config  = new Configuration();
+        if(language.equals("en")) {
+            locale = new Locale("en");
+            Locale.setDefault(locale);
+            config.locale = locale;
+        }
+            else if(language.equals("ar")){
+            locale = new Locale("ar");
+            Locale.setDefault(locale);
+            config.locale = locale;
+            }
+            context.getResources().updateConfiguration(config,null);
+        }
+
+
 }
