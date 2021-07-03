@@ -73,7 +73,8 @@ public class NavigationBottom extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(SSN_FILE_NAME, Context.MODE_PRIVATE);
         slanguage = sharedPreferences.getString("language","en");
-       Configuration config = getBaseContext().getResources().getConfiguration();
+
+    //   Configuration config = getBaseContext().getResources().getConfiguration();
 //
 //      //  if(!"".equals(slanguage)&&!config.locale.getLanguage().equals(slanguage)){
 //        //    recreate();
@@ -84,26 +85,8 @@ public class NavigationBottom extends AppCompatActivity {
 
           changeLanguage();
 
-
-           // settingLocale(getBaseContext(),slanguage);
-
-
         setContentView(R.layout.bottom_navigation);
 
-
-//        if(slanguage.equals("ar")){
-//            finish();
-//            startActivity(getIntent());
-//        }
-
-//        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked){
-//                    delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
-//                }
-//            }
-//        });
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         BottomNavigationView bottomNavigation = findViewById(R.id.bar_button_nbtn);
         bottomNavigation.setItemIconTintList(null);
@@ -113,10 +96,8 @@ public class NavigationBottom extends AppCompatActivity {
         if (sharedPreferences.contains(SSN_SP_KEY)&&sharedPreferences.contains("infect")){
             ssn=  sharedPreferences.getString(SSN_SP_KEY,"No SSN");
             infected=  sharedPreferences.getString("infect","No SSN");
-            // Toast.makeText(this, ssn+"", Toast.LENGTH_SHORT).show();
-        }
 
-        // Toast.makeText(this, slanguage, Toast.LENGTH_SHORT).show();
+        }
 
 
 
@@ -162,25 +143,6 @@ public class NavigationBottom extends AppCompatActivity {
         }
 
 
-
-
-//        Intent intent = getIntent();
-//        String ssn = intent.getStringExtra(EXTRA_SSN);
-        //Toast.makeText(this, ssn+"", Toast.LENGTH_SHORT).show();
-
-
-//        Bundle bundle = new Bundle();
-//        bundle.putString(EXTRA_SSN, ssn);
-//        ProfileFragment fragment = new ProfileFragment();
-//        fragment.setArguments(bundle);
-
-//        FragmentManager fm = getSupportFragmentManager();
-//        FragmentTransaction ft = fm.beginTransaction();
-//        ft.replace(R.id.profileFragment, fragment);
-//        ft.commit();
-
-
-
     }
 
 
@@ -196,21 +158,8 @@ public class NavigationBottom extends AppCompatActivity {
             Toast.makeText(this, "Please press Back again to exit", Toast.LENGTH_SHORT).show();
         }
 
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                doubleBackToExitPressed=1;
-//            }
-//        }, 2000);
-    }
-//    public void ToggleTheme(boolean isChecked){
-//        if (isChecked) {
-//            this.getTheme().applyStyle(R.style.AppTheme, false);
-//        }
-//        else{
-//            this.getTheme().applyStyle(R.style.AppTheme, true);
-//        }
-//    }
+   }
+
 private void startLocationService(){
     if(!isLocationServiceRunning()){
         Intent serviceIntent = new Intent(this, LocationService.class);
@@ -286,7 +235,6 @@ private boolean isLocationServiceRunning() {
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             mLocationPermissionGranted = true;
-            //  getChatrooms();
             // getUserLocation();
 //            goToNavigationBottomForDisplayMap();
         }
@@ -362,23 +310,6 @@ private boolean isLocationServiceRunning() {
         return false;
     }
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        if(checkMapServices()){
-//            if(mLocationPermissionGranted){
-//                //  getChatrooms();
-//                //     getUserLocation();
-////                goToNavigationBottomForDisplayMap();
-//            }
-//            else{
-//                getLocationPermission();
-//
-//            }
-//        }
-//    }
-
-
 
     public void changeLanguage(){
 
@@ -391,27 +322,5 @@ private boolean isLocationServiceRunning() {
         config.setLayoutDirection(config.locale);
         getResources().updateConfiguration(config,getResources().getDisplayMetrics());
     }
-
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        setContentView(R.layout.bottom_navigation);
-//    }
-    public void settingLocale(Context context,String language){
-        Locale locale;
-        Configuration config  = new Configuration();
-        if(language.equals("en")) {
-            locale = new Locale("en");
-            Locale.setDefault(locale);
-            config.locale = locale;
-        }
-            else if(language.equals("ar")){
-            locale = new Locale("ar");
-            Locale.setDefault(locale);
-            config.locale = locale;
-            }
-            context.getResources().updateConfiguration(config,null);
-        }
-
 
 }

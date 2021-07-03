@@ -169,6 +169,8 @@
     <string name="ok_for_check_internet">موافق</string>
     <string name="This_application_require_sgps_to_work_properly">يتطلب هذا التطبيق تفعيل GPS للعمل بشكل صحيح,يرجي تفعيله</string>
     <string name="yes_for_dialog_permission">موافق</string>
+    <string name="please_enter_valid_name">أدخل اسم مدن صحيحة من فضلك </string>
+    <string name="search">ابحث...</string>
 
     <string-array name="number_of_repetition">
         <item>24 ساعة </item>

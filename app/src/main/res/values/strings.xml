@@ -166,5 +166,7 @@
     <string name="ok_for_check_internet">OK</string>
     <string name="This_application_require_sgps_to_work_properly">This application requires GPS to work properly,please enable it?</string>
     <string name="yes_for_dialog_permission">Yes</string>
+    <string name="please_enter_valid_name">Please enter name of right places </string>
+    <string name="search">Search...</string>
 
 </resources>

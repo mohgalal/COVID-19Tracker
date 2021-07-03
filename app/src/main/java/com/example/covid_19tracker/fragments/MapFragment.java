@@ -118,7 +118,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         if (checkMapServices()) {
             if (mLocationPermissionGranted) {
-                //  getChatrooms();
                 //     getUserLocation();
 //                goToNavigationBottomForDisplayMap();
                 getUserLocation();
@@ -167,7 +166,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             endDay=sharedPreferences.getInt("endDay",666);
             endYear=sharedPreferences.getInt("endYear",2080);
             infected=  sharedPreferences.getString("infect","No SSN");
-           // Toast.makeText(getActivity(), "ssn : " + ssnSharedPrefrences, Toast.LENGTH_SHORT).show();
         }
 
         if (sharedPreferences.contains("lat2")&&sharedPreferences.contains("lng2")) {
@@ -177,6 +175,51 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         }
 
         //for getting Statistics Info
+        getStatistics();
+
+        //for search about the places on the map
+        searchPlaces();
+
+    }
+
+    private void searchPlaces() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        String location  = searchView.getQuery().toString();
+        List<Address> addressList = null;
+        if(location!=null || !location.equals("")) {
+            Geocoder geocoder = new Geocoder(getContext());
+            try {
+                addressList = geocoder.getFromLocationName(location, 1);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                Address address = addressList.get(0);
+                searchLatLng = new LatLng(address.getLatitude(), address.getLongitude());
+                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(searchLatLng, 15f);
+                    mMap.animateCamera(cameraUpdate);
+
+
+            }
+            catch (Exception e){
+                Toast.makeText(getActivity(), (R.string.please_enter_valid_name), Toast.LENGTH_LONG).show();
+            }
+                   }
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
+    }
+});
+    }
+
+    private void getStatistics() {
         ivStatisticsInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -195,41 +238,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
             }
         });
-searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        String location  = searchView.getQuery().toString();
-        List<Address> addressList = null;
-        if(location!=null || !location.equals("")) {
-            Geocoder geocoder = new Geocoder(getContext());
-            try {
-                addressList = geocoder.getFromLocationName(location, 1);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                Address address = addressList.get(0);
-                searchLatLng = new LatLng(address.getLatitude(), address.getLongitude());
-                    Toast.makeText(getActivity(), searchLatLng.latitude + "", Toast.LENGTH_SHORT).show();
-                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(searchLatLng, 15f);
-                    mMap.animateCamera(cameraUpdate);
-
-
-            }
-            catch (Exception e){
-                Toast.makeText(getActivity(), "Please enter name of right places ", Toast.LENGTH_LONG).show();
-            }
-                   }
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        return false;
-    }
-});
     }
 
 
@@ -274,8 +282,6 @@ searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                             LatLng latLng = new LatLng(lat, lng);
                             mMap.addMarker(new MarkerOptions().position(latLng));
                             //  Marker mMarker =  mMap.addMarker(new MarkerOptions().position(latLng));
-
-//                            Toast.makeText(getActivity(), "Initialize Infected  "+lat2+" , "+lng2, Toast.LENGTH_LONG).show();
 
 //                            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15f);
 //                                mMap.animateCamera(cameraUpdate);
@@ -690,7 +696,6 @@ searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                     JSONObject JO = jsonArray.getJSONObject(0);
                     Log.d(TAG, JO.toString());
                     stotalPeople = JO.getString("Total_number_of_users");
-                    Toast.makeText(getContext(), "here we here"+stotalPeople, Toast.LENGTH_SHORT).show();
                    // totalInfected.setText(stotalInfected);
                     totalPeople.setText(stotalPeople);
 

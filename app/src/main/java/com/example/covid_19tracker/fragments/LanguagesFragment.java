@@ -97,31 +97,13 @@ public class LanguagesFragment extends Fragment {
             }
         });
     }
-    public void setLocale(String lang,View v){
+    public void setLocale(String lang,View v) {
         Locale myLocale = new Locale(lang);
         DisplayMetrics dm = getActivity().getResources().getDisplayMetrics();
         Configuration conf = getActivity().getResources().getConfiguration();
         conf.locale = myLocale;
-        getActivity().getResources().updateConfiguration(conf,dm);
+        getActivity().getResources().updateConfiguration(conf, dm);
         //Navigation.findNavController(v).navigate(R.id.languagesFragment);
-        ((NavigationBottom)getActivity()).recreate();
-
-
-
-
-
-//            new Handler().post(new Runnable() {
-//            @Override
-//            public void run() {
-//           Intent intent = getActivity().getIntent();
-//           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_NO_ANIMATION);
-//           getActivity().overridePendingTransition(0,0);
-//           getActivity().finish();
-//           getActivity().overridePendingTransition(0,0);
-//           startActivity(intent);
-//            }
-//            });
-            }
-
-
+        ((NavigationBottom) getActivity()).recreate();
+    }
 }
