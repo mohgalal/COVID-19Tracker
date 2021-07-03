@@ -84,7 +84,6 @@ public class AlarmDetailsFragment extends Fragment {
                     String  selectedNumber = parent.getItemAtPosition(position).toString();
                     selectedNum = selectedNumber;
 
-                    //Toast.makeText(getContext(), selectedNum+"", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
@@ -292,23 +291,4 @@ public class AlarmDetailsFragment extends Fragment {
 
     }
 
-    private void setAlarm(String text, String time) {
-        AlarmManager am = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-
-        Intent intent = new Intent(getContext(), AlarmReceiver.class);
-        intent.putExtra("text", text);
-        intent.putExtra("time", time);
-
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
-        String dateandtime = timeTonotify;
-        DateFormat formatter = new SimpleDateFormat("hh:mm");
-        try {
-            Date date1 = formatter.parse(dateandtime);
-            am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-    }
 }

@@ -71,6 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_35sdp"
             android:hint="@string/login_et_email_hint"
+            app:boxStrokeColor="?attr/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/login_now_tv">
@@ -78,6 +79,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/login_et_email"
                 android:layout_width="match_parent"
+                android:textColor="@color/black"
                 android:layout_height="wrap_content"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>

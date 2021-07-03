@@ -68,7 +68,7 @@
         android:layout_marginTop="@dimen/_20sdp"
         android:text="covid19trackerteam1@gmail.com"
         android:textStyle="bold"
-        android:textColor="#000"
+        android:textColor="?attr/colorOnPrimary"
         android:textSize="@dimen/_18sdp"
         app:layout_constraintEnd_toEndOf="@id/contact_us_iv"
         app:layout_constraintStart_toStartOf="@id/contact_us_iv"

@@ -27,16 +27,7 @@ public class AlarmModel implements Serializable {
         this.repeat = repeat;
         this.timeRepeat = timeRepeat;
     }
-//    public AlarmModel(String title, String time, String repeat) {
-//        this.title = title;
-//        this.time = time;
-//        this.repeat = repeat;
-//    }
-//
-//    public AlarmModel(String title, String time) {
-//        this.title = title;
-//        this.time = time;
-//    }
+
     public AlarmModel() {
 
     }

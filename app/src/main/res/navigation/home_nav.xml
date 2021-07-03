@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_map" />
     <fragment
         android:id="@+id/alarmFragment"
-        android:name="com.example.covid_19tracker.alarm.AlarmFragment"
+        android:name="com.example.covid_19tracker.fragments.AlarmFragment"
         android:label="fragment_alarm"
         tools:layout="@layout/fragment_alarm" >
         <action

@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorScheme">@color/black</item>
+        <item name="colorSurface">@color/so_light_black</item>
         <item name="colorOnBackground">@color/black</item>
 
     </style>

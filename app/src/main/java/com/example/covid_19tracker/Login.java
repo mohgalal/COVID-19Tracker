@@ -53,14 +53,13 @@ public class Login extends AppCompatActivity {
     TextInputEditText et_SSN,et_pass;
     MaterialButton btn_login,btn_signup;
     CheckBox chb_stay_signed_in;
-    TextView tv_forget_pass;
     Animation anim1,anim2,anim3,anim4,anim5;
     TextInputLayout textInputLayout1,textInputLayout2;
     int doubleBackToExitPressed = 1;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     public boolean mLocationPermissionGranted = false;
-
+    String infected;
     ProgressBar progressBar ;
 
     @Override
@@ -68,13 +67,10 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         et_SSN =findViewById(R.id.login_et_email);
-//        et_pass=findViewById(R.id.login_et_pass);
         btn_login=findViewById(R.id.login_btn_login);
         btn_signup=findViewById(R.id.login_btn_sign_up);
-//        tv_forget_pass=findViewById(R.id.login_forget_pass);
         chb_stay_signed_in = findViewById(R.id.login_chb_stay_signed_in);
         textInputLayout1=findViewById(R.id.login_text_input1);
-//        textInputLayout2=findViewById(R.id.login_text_input2);
         progressBar= findViewById(R.id.progress_login);
         Sprite doubleBounce = new FoldingCube();
         progressBar.setIndeterminateDrawable(doubleBounce);
@@ -84,21 +80,15 @@ public class Login extends AppCompatActivity {
         anim2= AnimationUtils.loadAnimation(Login.this, R.anim.anim2);
         anim3= AnimationUtils.loadAnimation(Login.this, R.anim.anim3);
         anim4= AnimationUtils.loadAnimation(Login.this, R.anim.anim4);
-       // anim5= AnimationUtils.loadAnimation(Login.this,R.anim.anim5);
 
         textInputLayout1.setAnimation(anim1);
-//        textInputLayout2.setAnimation(anim2);
-//        tv_forget_pass.setAnimation(anim3);
         chb_stay_signed_in.setAnimation(anim3);
         btn_login.setAnimation(anim3);
         btn_signup.setAnimation(anim4);
 
-        // hide old design
-//        tv_forget_pass.setVisibility(View.GONE);
-//        textInputLayout2.setVisibility(View.GONE);
+
         if(checkMapServices()){
             if(mLocationPermissionGranted){
-                //  getChatrooms();
                 //     getUserLocation();
 //                goToNavigationBottomForDisplayMap();
             }
@@ -164,16 +154,14 @@ public class Login extends AppCompatActivity {
                         JSONArray jsonArray = jsonObject.getJSONArray("server_response");
                         JSONObject JO = jsonArray.getJSONObject(0);
                         String code = JO.getString("code");
-
-
+                         infected = JO.getString("infected");
                         if (code.equals("login_true")) {
                             progressBar.setVisibility(View.INVISIBLE);
                             String ssn = JO.getString("SSN");
                             editor = sharedPreferences.edit();
                             editor.putString(SSN_SP_KEY,ssn);
-                            editor.putString("infect","2");
+                            editor.putString("infect",infected);
                             editor.apply();
-                            Toast.makeText(Login.this, "Successfully Login", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Login.this, NavigationBottom.class);
                             startActivity(intent);
 

@@ -46,14 +46,18 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="?attr/colorAccent"
             android:layout_marginTop="@dimen/_8sdp"
+            app:hintTextColor="@color/so_light_black"
             android:hint="@string/signup_et_hint_full_name">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/signup_text_input_et_full_name"
                 android:layout_width="match_parent"
                 android:maxLines="1"
+                android:textColor="@color/black"
                 android:ems="10"
+                app:hintTextColor="@color/dark_red"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -64,6 +68,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="?attr/colorAccent"
             android:layout_marginTop="@dimen/_8sdp"
             android:hint="@string/signup_et_hint_ssn">
 
@@ -71,6 +76,7 @@
                 android:id="@+id/signup_text_input_et_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:inputType="numberDecimal" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,12 +86,15 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="?attr/colorAccent"
             android:layout_marginTop="@dimen/_8sdp"
+            app:hintTextColor="@color/so_light_black"
             android:hint="@string/signup_et_hint_email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/signup_text_input_et_ssn"
                 android:layout_width="match_parent"
+                android:textColor="@color/black"
                 android:layout_height="wrap_content"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>

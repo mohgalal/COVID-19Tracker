@@ -25,7 +25,6 @@ import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import com.example.covid_19tracker.Login;
 import com.example.covid_19tracker.R;
-import com.example.covid_19tracker.SaveState;
 
 import static com.example.covid_19tracker.Constant.DARK_CHECKED;
 import static com.example.covid_19tracker.Constant.SSN_FILE_NAME;
@@ -36,11 +35,9 @@ public class SettingsFragment extends Fragment {
     private  SharedPreferences sharedPreferences2;
     private  SharedPreferences sharedPreferences1;
     private  SharedPreferences.Editor editor ;
-    boolean switchState = false;
     TextView emergencyTv , languagesTv , contactusTv, logOutTv;
     ImageView gearIv;
     Switch darkModeSw;
-    SaveState saveState;
     AnimatedVectorDrawableCompat avd;
     AnimatedVectorDrawable avd2;
     @Override
@@ -76,21 +73,6 @@ public class SettingsFragment extends Fragment {
       editor = sharedPreferences2.edit();
         boolean b = sharedPreferences2.getBoolean(DARK_CHECKED,false);
         darkModeSw.setChecked(b);
-//        if (switchState == true){
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//            darkModeSw.setChecked(true);
-//        }else
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
-//        saveState = new SaveState(getContext());
-//        if (saveState.getDarkModeState() == true){
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//        }else
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//
-//        if (saveState.getDarkModeState() == true){
-//            darkModeSw.setChecked(true);
-//        }
 
 
         //  the Animation for gear
@@ -103,17 +85,14 @@ public class SettingsFragment extends Fragment {
             avd2.start();
         }
 
-        //darkModeSw.setChecked(saveState.getDarkModeState());
         darkModeSw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
-                   // saveState.setDarkModeState(true);
                     editor.putBoolean(DARK_CHECKED,true);
                     editor.apply();
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 }else{
-                   // saveState.setDarkModeState(false);
                     editor.putBoolean(DARK_CHECKED,false);
                 editor.apply();
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);

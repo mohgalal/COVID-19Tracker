@@ -1,4 +1,4 @@
-package com.example.covid_19tracker.alarm;
+package com.example.covid_19tracker.fragments;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -31,7 +31,6 @@ public class AlarmFragment extends Fragment {
     RecyclerView alarmRv;
     AlarmAdapterRv adapterRv;
     List<AlarmModel> alarmList = new ArrayList<>();
-
     TextView noAlarmTv;
     FloatingActionButton fab;
 

@@ -32,7 +32,6 @@ import static com.example.covid_19tracker.Constant.SSN_SP_KEY;
 
 public class Signup extends AppCompatActivity {
 
-    MySqliteDatabaseSSN db;
     TextInputEditText et_name,et_ssn,et_phone,et_pass;
     Button btn_register;
     TextInputLayout textInputLayout1,textInputLayout2,textInputLayout3,textInputLayout4;
@@ -76,12 +75,11 @@ public class Signup extends AppCompatActivity {
         textInputLayout1.setAnimation(anim1);
         textInputLayout2.setAnimation(anim2);
         textInputLayout3.setAnimation(anim3);
-//        textInputLayout4.setAnimation(anim4);
+
         btn_register.setAnimation(anim5);
 
-        db = new MySqliteDatabaseSSN(Signup.this);
 
-//        textInputLayout4.setVisibility(View.GONE);
+
 
         sharedPreferences = getSharedPreferences(SSN_FILE_NAME, Context.MODE_PRIVATE);
 
@@ -90,28 +88,20 @@ public class Signup extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                Toast.makeText(Signup.this, "moooo", Toast.LENGTH_LONG).show();
-             //   signUp(v);
-                name = et_name.getText().toString();
-                SSN1 = et_ssn.getText().toString().trim();
-                phone1 = et_phone.getText().toString().trim();
-                editor = sharedPreferences.edit();
-                editor.putString(SSN_SP_KEY, SSN1);
-                editor.apply();
-                if (SSN1.equals("")) {
-                    et_ssn.setError("Please Enter Your SSN");
-                }else {
-                Intent intent = new Intent(Signup.this, Question.class);
-                startActivity(intent);}
-//                SSNModel model = new SSNModel(Long.parseLong(SSN1));
-//                insertResult = db.insertSSN(model);
-//                if(insertResult){
-//                    Toast.makeText(Signup.this,"Success Insertion"+" ,number of rows inserted "+db.getSSNCount(),Toast.LENGTH_LONG).show();
-//                }
-//                else {
-//                    Toast.makeText(Signup.this,"Error Occurred",Toast.LENGTH_LONG).show();
-//
-//                }
+
+              signUp(v);
+//                name = et_name.getText().toString();
+//                SSN1 = et_ssn.getText().toString().trim();
+//                phone1 = et_phone.getText().toString().trim();
+//                editor = sharedPreferences.edit();
+//                editor.putString(SSN_SP_KEY, SSN1);
+//                editor.apply();
+//                if (SSN1.equals("")) {
+//                    et_ssn.setError("Please Enter Your SSN");
+//                }else {
+//                Intent intent = new Intent(Signup.this, Question.class);
+//                startActivity(intent);}
+
             }
         });
 
@@ -123,13 +113,6 @@ public class Signup extends AppCompatActivity {
         phone1 = et_phone.getText().toString().trim();
 
 
-        // SSN=Integer.parseInt(SSN1);
-//        String[] words = name.split(" ");
-//        for (int i = 0; i < words.length; i++) {
-//            if (!(words[i].length() <= 20)) {
-//                et_name.setError("The name is too long");
-//                break;
-//            }
             if (name.equals("") && SSN1.equals("") && phone1.equals("")) {
 
                 et_name.setError("Please Enter Your Name");
@@ -161,8 +144,6 @@ public class Signup extends AppCompatActivity {
                 params.put("infected", "0");
                 params.put("longitude", "8.9");
                 params.put("latitude", "9.0");
-//        progressDialog.setMessage("Please wait...");
-//        progressDialog.show();
 
 
                 AsyncHttpClient async = new AsyncHttpClient();
@@ -184,25 +165,14 @@ public class Signup extends AppCompatActivity {
                             String code = JO.getString("code");
 
                             if (code.equals("sign_up_true")) {
-                                // Toast.makeText(Signup.this, "Success", Toast.LENGTH_SHORT).show();
                                 editor = sharedPreferences.edit();
                                 editor.putString(SSN_SP_KEY, SSN1);
                                 editor.apply();
                                 Toast.makeText(Signup.this, SSN1 + "", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(Signup.this, Question.class);
-                                // intent.putExtra(EXTRA_SSN, SSN1);
                                 startActivity(intent);
                                 finish();
 
-//                       Bundle bundle =new Bundle();
-//                       bundle.putString("fragment",SSN1);
-//                       ProfileFragment fragment = new ProfileFragment();
-//                       fragment.setArguments(bundle);
-
-//                       FragmentManager fm = getSupportFragmentManager();
-//                       FragmentTransaction ft = fm.beginTransaction();
-//                       ft.replace(R.id.profileFragment,fragment);
-//                       ft.commit();
 
                             } else
                                 Toast.makeText(Signup.this, "sorry, try again", Toast.LENGTH_SHORT).show();

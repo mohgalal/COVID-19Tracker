@@ -174,14 +174,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             defaultLat2 = sharedPreferences.getFloat("lat2", (float) 30.586737);
             defaultLng2 = sharedPreferences.getFloat("lng2", (float) 31.524736);
 
-           // Toast.makeText(getActivity(), "default lat,lng : " + defaultLat2+", "+defaultLng2, Toast.LENGTH_SHORT).show();
         }
 
         //for getting Statistics Info
         ivStatisticsInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(getActivity(), "sta info", Toast.LENGTH_SHORT).show();
                 //Create Bottom Sheet dialog
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
                 bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog_for_statistics);
@@ -191,8 +189,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 totalInfected = bottomSheetDialog.findViewById(R.id.total_infected);
                 totalPeople = bottomSheetDialog.findViewById(R.id.recovery_cases);
 
-                //httpStatisticsRetrieve();
-                //httpStatistics2Retrieve();
+                httpStatisticsRetrieve();
+                httpStatistics2Retrieve();
                 bottomSheetDialog.show();
 
             }
@@ -401,7 +399,6 @@ searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 //                            }
 
                             mMap.addMarker(new MarkerOptions().position(latLng)).setTitle(ssn + "");
-                               //     Toast.makeText(getActivity(), "ssn "+ssn+"  -  "+"updated "+i+" : "+lat+" , "+lng, Toast.LENGTH_LONG).show();
 
                         }
                     }
@@ -457,7 +454,6 @@ searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
         ConnectivityManager conMgr = (ConnectivityManager)this.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
         if(netInfo==null ||!netInfo.isConnected() || !netInfo.isAvailable()){
-            // Toast.makeText(getActivity(), "No internet connection !", Toast.LENGTH_LONG).show();
             dialogForInternet();
             return false;
         }
@@ -637,8 +633,6 @@ searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             public void onSuccess(String response) {
                 super.onSuccess(response);
-                // Log.d(TAG, "response: ");
-                //Toast.makeText(Login.this, "Success", Toast.LENGTH_SHORT).show();
                 try {
 //                   progressDialog.dismiss();
                     Log.d(TAG, response);
@@ -647,11 +641,8 @@ searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                     JSONObject JO = jsonArray.getJSONObject(0);
                     Log.d(TAG, JO.toString());
                     stotalInfected = JO.getString("Number_of_infected");
-                    Toast.makeText(getContext(), "here we here"+stotalInfected, Toast.LENGTH_SHORT).show();
                     totalInfected.setText(stotalInfected);
                     //totalPeople.setText(stotalPeople);
-
-                    //Toast.makeText(getContext(), "sorry, try again", Toast.LENGTH_SHORT).show();
 
                 } catch (JSONException e) {
                     e.printStackTrace();

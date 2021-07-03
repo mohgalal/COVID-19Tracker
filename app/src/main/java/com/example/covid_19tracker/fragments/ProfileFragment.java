@@ -1,6 +1,5 @@
 package com.example.covid_19tracker.fragments;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -39,10 +38,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import static com.example.covid_19tracker.Constant.PROFILE_URL;
 import static com.example.covid_19tracker.Constant.QUESTION_URL;
@@ -94,19 +89,24 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         sharedPreferences = this.getActivity().getSharedPreferences(SSN_FILE_NAME, Context.MODE_PRIVATE);
+        editor= sharedPreferences.edit();
+
         if (sharedPreferences.contains(SSN_SP_KEY)) {
             ssn = sharedPreferences.getString(SSN_SP_KEY, "No SSN");
             infected=  sharedPreferences.getString("infect","No SSN");
             startDay=sharedPreferences.getInt("startDay",555);
         }
 
+
+
         calendar = Calendar.getInstance();
         currentDate = DateFormat.getDateInstance().format(calendar.getTime());
         dateTv.setText(currentDate);
-      //  Toast.makeText(getContext(), currentDate+" ", Toast.LENGTH_SHORT).show();
 
         infectedLout.setVisibility(View.INVISIBLE);
         nonInfectedLout.setVisibility(View.INVISIBLE);
+
+
 
         if (infected.equals("1")){
             infectedLout.setVisibility(View.VISIBLE);
@@ -124,7 +124,8 @@ public class ProfileFragment extends Fragment {
         }
 
 
-       //httpRetrieve();
+        httpRetrieve();
+
 
 
 
@@ -150,8 +151,6 @@ public class ProfileFragment extends Fragment {
 
             public void onSuccess(String response) {
                 super.onSuccess(response);
-               // Log.d(TAG, "response: ");
-                //Toast.makeText(Login.this, "Success", Toast.LENGTH_SHORT).show();
                 try {
 //                   progressDialog.dismiss();
                     Log.d(TAG, response);
@@ -160,19 +159,22 @@ public class ProfileFragment extends Fragment {
                     JSONObject JO = jsonArray.getJSONObject(0);
                     Log.d(TAG, JO.toString());
                     String fullName = JO.getString("full_name");
-                    String infected = JO.getString("infected");
+                    String infected2 = JO.getString("infected");
+
                     if (!fullName.equals("null") && !fullName.isEmpty() && fullName != null){ profileNameTv.setText(fullName);}
-                    if (!infected.equals("null") && !infected.isEmpty() && infected != null){
-                        if (infected.equals("0")) {
+                    if (!infected2.equals("null") && !infected2.isEmpty() && infected2 != null){
+                        if (infected2.equals("0")) {
                             statusBtn.setText("Non-Infected");
+                            nonInfectedLout.setVisibility(View.VISIBLE);
                             statusBtn.setTextColor(Color.GREEN);
 
                         }else{
                             statusBtn.setText("Infected");
-                        statusBtn.setTextColor(Color.RED);}
+                            infectedLout.setVisibility(View.VISIBLE);
+                        statusBtn.setTextColor(Color.RED);
+                        }
 
                     }
-                        //Toast.makeText(getContext(), "sorry, try again", Toast.LENGTH_SHORT).show();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -183,19 +185,18 @@ public class ProfileFragment extends Fragment {
             public void onFailure(int statusCode, Throwable error, String content) {
                 super.onFailure(statusCode, error, content);
                 Log.d(TAG, "onFailure: error");
-//                Toast.makeText(getContext(), error.getMessage()+content, Toast.LENGTH_SHORT).show();
                 if (statusCode == 404){
                     Toast.makeText(getContext(), "not found", Toast.LENGTH_SHORT).show();
                 }
                 else if (statusCode >=500 && statusCode <= 600){
-                   // Toast.makeText(getContext(), "server error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "server error", Toast.LENGTH_SHORT).show();
                 }
                 else if (statusCode == 403){
-                   // Toast.makeText(getContext(), "forbidden error", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(getContext(), "forbidden error", Toast.LENGTH_SHORT).show();
                 }
 
                 else {
-//                    Toast.makeText(getContext(), "Unexpected error ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Unexpected error ", Toast.LENGTH_SHORT).show();
                 }
             }
         });
