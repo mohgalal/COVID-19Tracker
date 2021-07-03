@@ -191,8 +191,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 totalInfected = bottomSheetDialog.findViewById(R.id.total_infected);
                 totalPeople = bottomSheetDialog.findViewById(R.id.recovery_cases);
 
-                httpStatisticsRetrieve();
-                httpStatistics2Retrieve();
+                //httpStatisticsRetrieve();
+                //httpStatistics2Retrieve();
                 bottomSheetDialog.show();
 
             }

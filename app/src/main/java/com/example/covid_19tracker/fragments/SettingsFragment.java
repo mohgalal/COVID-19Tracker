@@ -18,23 +18,29 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import com.example.covid_19tracker.Login;
-import com.example.covid_19tracker.NavigationBottom;
 import com.example.covid_19tracker.R;
+import com.example.covid_19tracker.SaveState;
 
+import static com.example.covid_19tracker.Constant.DARK_CHECKED;
 import static com.example.covid_19tracker.Constant.SSN_FILE_NAME;
 import static com.example.covid_19tracker.Constant.SSN_SP_KEY;
 
 public class SettingsFragment extends Fragment {
-
+    public static final String DARK_MODE="dark_mode";
+    private  SharedPreferences sharedPreferences2;
+    private  SharedPreferences sharedPreferences1;
+    private  SharedPreferences.Editor editor ;
+    boolean switchState = false;
     TextView emergencyTv , languagesTv , contactusTv, logOutTv;
     ImageView gearIv;
     Switch darkModeSw;
-    private SharedPreferences sharedPreferences;
+    SaveState saveState;
     AnimatedVectorDrawableCompat avd;
     AnimatedVectorDrawable avd2;
     @Override
@@ -55,6 +61,9 @@ public class SettingsFragment extends Fragment {
         contactusTv = view.findViewById(R.id.contact_us_tv);
         logOutTv = view.findViewById(R.id.logout_tv);
         darkModeSw = view.findViewById(R.id.dark_mode_sw);
+
+
+
         return view ;
     }
 
@@ -62,6 +71,27 @@ public class SettingsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+      sharedPreferences2 = getActivity().getSharedPreferences(DARK_MODE, Context.MODE_PRIVATE);
+      editor = sharedPreferences2.edit();
+        boolean b = sharedPreferences2.getBoolean(DARK_CHECKED,false);
+        darkModeSw.setChecked(b);
+//        if (switchState == true){
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//            darkModeSw.setChecked(true);
+//        }else
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+//        saveState = new SaveState(getContext());
+//        if (saveState.getDarkModeState() == true){
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//        }else
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//
+//        if (saveState.getDarkModeState() == true){
+//            darkModeSw.setChecked(true);
+//        }
+
 
         //  the Animation for gear
         Drawable drawable = gearIv.getDrawable();
@@ -73,16 +103,23 @@ public class SettingsFragment extends Fragment {
             avd2.start();
         }
 
-        //darkModeSw.setChecked(SaveState.getDarkModeState());
-//        darkModeSw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked){
-//                    getActivity().setTheme(R.style.DarkTheme);
-//                    ((NavigationBottom)getActivity()).recreate();
-//                }
-//            }
-//        });
+        //darkModeSw.setChecked(saveState.getDarkModeState());
+        darkModeSw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                   // saveState.setDarkModeState(true);
+                    editor.putBoolean(DARK_CHECKED,true);
+                    editor.apply();
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                }else{
+                   // saveState.setDarkModeState(false);
+                    editor.putBoolean(DARK_CHECKED,false);
+                editor.apply();
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+            }
+        });
 
         emergencyTv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,8 +144,8 @@ public class SettingsFragment extends Fragment {
         logOutTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedPreferences = getActivity().getSharedPreferences(SSN_FILE_NAME, Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+                sharedPreferences1 = getActivity().getSharedPreferences(SSN_FILE_NAME, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences1.edit();
                 editor.remove(SSN_SP_KEY);
                 editor.apply();
                 Intent intent = new Intent(getActivity(), Login.class);

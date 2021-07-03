@@ -125,7 +125,7 @@
                     android:drawableStart="@drawable/ic_timer"
                     android:drawablePadding="@dimen/_8sdp"
                     android:text="@string/add_reminder_tv_time"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="20sp" />
 
                 <Spinner
@@ -136,7 +136,7 @@
                     android:layout_weight="1"
                     android:drawablePadding="@dimen/_8sdp"
                     android:text="@string/time_repeat_sp"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="20sp"
 
                     style="@style/Widget.AppCompat.DropDownItem.Spinner"
@@ -176,7 +176,7 @@
                 android:drawableStart="@drawable/ic_repeat"
                 android:drawablePadding="@dimen/_8sdp"
                 android:text="@string/repeat_weekly"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="20sp" />
 
         </LinearLayout>

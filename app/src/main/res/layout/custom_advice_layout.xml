@@ -29,7 +29,7 @@
             android:layout_below="@id/custom_advice_img_image"
             android:layout_margin="@dimen/_8sdp"
             android:text="@string/custome_advice_txt_advice_description"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnPrimary"
             android:textSize="22sp" />
 
     </RelativeLayout>

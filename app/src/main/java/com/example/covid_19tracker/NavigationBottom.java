@@ -15,6 +15,8 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -48,7 +50,7 @@ import static com.example.covid_19tracker.Constant.SSN_FILE_NAME;
 import static com.example.covid_19tracker.Constant.SSN_SP_KEY;
 
 public class NavigationBottom extends AppCompatActivity {
-
+    
     private static final String TAG = "NavigationBottom";
     private FusedLocationProviderClient fusedLocationProviderClient;
     double lat, lng,lat2,lng2;
@@ -58,6 +60,7 @@ public class NavigationBottom extends AppCompatActivity {
     public static User user1;
     int doubleBackToExitPressed = 1;
     String ssn;
+    Switch aSwitch;
     SharedPreferences sharedPreferences;
     public boolean mLocationPermissionGranted = false;
     String slanguage ;
@@ -93,6 +96,14 @@ public class NavigationBottom extends AppCompatActivity {
 //            startActivity(getIntent());
 //        }
 
+//        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked){
+//                    delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
+//                }
+//            }
+//        });
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         BottomNavigationView bottomNavigation = findViewById(R.id.bar_button_nbtn);
         bottomNavigation.setItemIconTintList(null);

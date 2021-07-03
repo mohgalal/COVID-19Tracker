@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".NavigationBottom"
+    android:id="@+id/navigation_btn"
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -27,6 +28,7 @@
             app:menu="@menu/button_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:labelVisibilityMode="labeled"
+            android:background="?attr/colorScheme"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>

@@ -12,6 +12,8 @@
     <color name="fab_pressed">#546e7a</color>
 
     <color name="white">#ffffff</color>
+    <color name="light_black">#222020</color>
+    <color name="so_light_black">#2d2d2d</color>
     <color name="black">#000000</color>
     <color name="blue">#0000ff</color>
     <color name="yellow">#ffff00</color>

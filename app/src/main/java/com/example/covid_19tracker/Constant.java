@@ -10,6 +10,8 @@ public class Constant {
     public static final String Statisticstwo_URL =BASE_URL + "statisticstwo.php";
     public static final String SSN_SP_KEY = "SSNSharedPreferncesKey";
     public static final String SSN_FILE_NAME = "SSNSharedPrefernces";
+    public static final String DARK_MODE="dark_mode";
+    public static final String DARK_CHECKED="dark_checked";
     public static final String EXTRA_SSN ="message";
     public static final int ERROR_DIALOG_REQUEST = 9001;
     public static final int PERMISSIONS_REQUEST_ENABLE_GPS = 9002;

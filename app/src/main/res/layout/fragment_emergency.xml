@@ -63,7 +63,7 @@
         android:layout_marginStart="@dimen/_7sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:text="@string/contact_us_call_one"
-        android:textColor="#000"
+        android:textColor="?attr/colorOnPrimary"
         android:textSize="@dimen/_20sdp"
         app:layout_constraintEnd_toEndOf="@id/emergency_iv"
         app:layout_constraintStart_toStartOf="@id/emergency_iv"
